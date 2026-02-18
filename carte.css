@@ -1,0 +1,218 @@
+.page-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(255, 77, 148, 0.1));
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    color: var(--gray-text);
+}
+
+.menu-section {
+    margin: 80px 0;
+}
+
+.menu-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--primary-pink);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(74, 144, 226, 0.3);
+}
+
+.menu-image {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+}
+
+.menu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.menu-info {
+    flex: 1;
+}
+
+.menu-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-blue);
+}
+
+.menu-info .description {
+    color: var(--gray-text);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.menu-info .price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-pink);
+}
+
+.spirits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.spirit-category {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.spirit-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(155, 89, 182, 0.3);
+}
+
+.spirit-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-purple);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.spirit-category p {
+    color: var(--gray-text);
+    line-height: 1.8;
+}
+
+.rule-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.rule-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 40px rgba(74, 144, 226, 0.3);
+}
+
+.rule-number {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    flex-shrink: 0;
+    width: 60px;
+    text-align: center;
+}
+
+.rule-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rule-content p {
+    color: var(--gray-text);
+    line-height: 1.8;
+}
+
+.important-notice {
+    margin: 50px 0;
+}
+
+.notice-box {
+    background: linear-gradient(135deg, rgba(255, 77, 148, 0.2), rgba(155, 89, 182, 0.2));
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid var(--primary-pink);
+    text-align: center;
+}
+
+.notice-box i {
+    font-size: 3rem;
+    color: var(--primary-pink);
+    margin-bottom: 1rem;
+}
+
+.notice-box h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-pink);
+}
+
+.notice-box p {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    line-height: 1.8;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .rule-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .rule-number {
+        width: 100%;
+    }
+}

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine - Paradox</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="carte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <style>
+        .magazine-gallery {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-header h2 {
+            color: var(--primary-pink);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-header p {
+            color: var(--gray-text);
+            font-size: 1.1rem;
+        }
+
+        .magazines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .magazine-card {
+            background: var(--darker-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .magazine-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.5);
+        }
+
+        .magazine-cover {
+            width: 100%;
+            height: 400px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .magazine-cover canvas {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .magazine-cover .loading {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+        }
+
+        .magazine-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .magazine-info h3 {
+            color: var(--primary-pink);
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        body.modal-open nav {
+            display: none !important;
+        }
+
+        .book-viewer {
+            position: fixed;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-pink);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--primary-purple);
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .book-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            border-radius: 15px;
+        }
+
+        .pdf-loader.hidden {
+            display: none;
+        }
+
+        .loader-spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(74, 144, 226, 0.2);
+            border-top: 8px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader-text {
+            margin-top: 2rem;
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .book-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .pdf-canvas-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            background: #1a1a1a;
+            position: relative;
+        }
+
+        .pdf-page {
+            height: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-left, .page-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            opacity: 0.4;
+        }
+
+        .page-left {
+            left: 20px;
+        }
+
+        .page-right {
+            right: 20px;
+        }
+
+        .page-left:hover, .page-right:hover {
+            opacity: 1;
+            background: rgba(74, 144, 226, 0.7);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .page-left i, .page-right i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .page-left.disabled, .page-right.disabled {
+            opacity: 0.1;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .book-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .book-btn {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .book-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.5);
+        }
+
+        .book-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .book-btn.prev {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+        }
+
+        .book-btn.next {
+            background: linear-gradient(135deg, var(--primary-pink), var(--primary-purple));
+        }
+
+        .page-indicator {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+
+        .loading-message {
+            text-align: center;
+            padding: 3rem;
+            color: var(--gray-text);
+        }
+
+        .loading-message i {
+            font-size: 4rem;
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @media screen and (max-width: 768px) {
+            .book-wrapper {
+                height: 500px;
+            }
+
+            .edition-dropdown select {
+                min-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="media/paradox_logo.png" alt="Paradox Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="reglement.html"><i class="fas fa-gavel"></i> Règlement</a></li>
+                <li><a href="carte.html"><i class="fas fa-cocktail"></i> Carte</a></li>
+                <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
+                <li><a href="merch.html"><i class="fas fa-shopping-bag"></i> Merch</a></li>
+                <li><a href="magazine.html" class="active"><i class="fas fa-book"></i> Magazine</a></li>
+                <li><a href="https://w2g.tv" target="_blank"><i class="fas fa-video"></i> Watch2Gether</a></li>
+                <li><a href="https://discord.gg" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="page-header">
+            <h1><i class="fas fa-book"></i> Magazine Paradox</h1>
+            <p>Découvrez nos éditions trimestrielles</p>
+        </section>
+
+        <section class="magazine-gallery">
+            <div class="magazines-grid" id="magazinesGrid">
+            </div>
+        </section>
+
+        <section id="bookViewer" class="book-viewer" style="display: none;">
+            <button class="modal-close" onclick="closeMagazine()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="book-container">
+                <div class="book-wrapper" id="bookWrapper">
+                    <div class="pdf-loader" id="pdfLoader">
+                        <div class="loader-spinner"></div>
+                        <div class="loader-text">Chargement...</div>
+                    </div>
+                    <div class="pdf-canvas-container" id="pdfContainer">
+                        <canvas id="pdfPageLeft" class="pdf-page"></canvas>
+                        <canvas id="pdfPageRight" class="pdf-page"></canvas>
+                    </div>
+                    <div class="page-left" id="prevArrow" onclick="previousPage()">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="page-right" id="nextArrow" onclick="nextPage()">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="page-indicator">
+                        <i class="fas fa-book"></i> <span id="pageIndicator">Visualisation du magazine</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Paradox</h4>
+                    <p>L'excellence artistique et l'innovation au cœur de tout ce que nous faisons.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="reglement.html">Règlement</a></li>
+                        <li><a href="carte.html">Carte</a></li>
+                        <li><a href="equipe.html">Équipe</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Rejoignez-nous</h4>
+                    <div class="social-links">
+                        <a href="https://w2g.tv" target="_blank"><i class="fas fa-video"></i></a>
+                        <a href="https://discord.gg" target="_blank"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paradox. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="magazine.js"></script>
+</body>
+</html>

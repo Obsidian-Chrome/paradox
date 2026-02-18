@@ -1,0 +1,18 @@
+# Exclure le contenu du dossier intra dans media
+media/intra/
+media/intra/*
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.log
+
+# Fichiers de configuration IDE
+.vscode/
+.idea/
+*.suo
+*.user

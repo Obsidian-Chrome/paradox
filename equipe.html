@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipe - Paradox</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="carte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-role-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .member-info {
+            padding: 1.5rem;
+        }
+
+        .member-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .member-info .role {
+            color: var(--primary-pink);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .member-info .bio {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .member-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .member-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(74, 144, 226, 0.2);
+            border-radius: 50%;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .member-social a:hover {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .section-divider {
+            margin: 80px 0 40px;
+            text-align: center;
+        }
+
+        .section-divider h2 {
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="media/paradox_logo.png" alt="Paradox Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="reglement.html"><i class="fas fa-gavel"></i> Règlement</a></li>
+                <li><a href="carte.html"><i class="fas fa-cocktail"></i> Carte</a></li>
+                <li><a href="equipe.html" class="active"><i class="fas fa-users"></i> Équipe</a></li>
+                <li><a href="merch.html"><i class="fas fa-shopping-bag"></i> Merch</a></li>
+                <li><a href="magazine.html"><i class="fas fa-book"></i> Magazine</a></li>
+                <li><a href="https://w2g.tv" target="_blank"><i class="fas fa-video"></i> Watch2Gether</a></li>
+                <li><a href="https://discord.gg" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="page-header">
+            <h1><i class="fas fa-users"></i> Notre Équipe</h1>
+            <p>Découvrez les artistes et mannequins qui font vivre Paradox</p>
+        </section>
+
+        <div class="section-divider">
+            <h2><i class="fas fa-paint-brush"></i> Artistes</h2>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="media/team/artist1.jpg" alt="Alexandre Dubois">
+                    <div class="member-role-badge"><i class="fas fa-music"></i> Artiste</div>
+                </div>
+                <div class="member-info">
+                    <h3>Alexandre Dubois</h3>
+                    <p class="role"><i class="fas fa-microphone"></i> Chanteur / Compositeur</p>
+                    <p class="bio">Passionné de musique électronique et de jazz fusion, Alexandre crée des ambiances uniques pour nos événements.</p>
+                    <div class="member-social">
+                        <a href="https://youtube.com/@alexandre" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/alexandre" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="media/team/artist2.jpg" alt="Sophie Martin">
+                    <div class="member-role-badge"><i class="fas fa-palette"></i> Artiste</div>
+                </div>
+                <div class="member-info">
+                    <h3>Sophie Martin</h3>
+                    <p class="role"><i class="fas fa-paint-brush"></i> Artiste Visuelle / DJ</p>
+                    <p class="bio">Sophie mélange l'art visuel et la musique pour créer des expériences immersives inoubliables.</p>
+                    <div class="member-social">
+                        <a href="https://youtube.com/@sophie" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/sophie" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="media/team/artist3.jpg" alt="Lucas Fernandez">
+                    <div class="member-role-badge"><i class="fas fa-guitar"></i> Artiste</div>
+                </div>
+                <div class="member-info">
+                    <h3>Lucas Fernandez</h3>
+                    <p class="role"><i class="fas fa-guitar"></i> Guitariste / Producteur</p>
+                    <p class="bio">Virtuose de la guitare, Lucas produit des morceaux qui fusionnent rock alternatif et sonorités modernes.</p>
+                    <div class="member-social">
+                        <a href="https://youtube.com/@lucas" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/lucas" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="media/team/artist4.jpg" alt="Emma Laurent">
+                    <div class="member-role-badge"><i class="fas fa-film"></i> Artiste</div>
+                </div>
+                <div class="member-info">
+                    <h3>Emma Laurent</h3>
+                    <p class="role"><i class="fas fa-video"></i> Vidéaste / Créatrice de Contenu</p>
+                    <p class="bio">Emma capture l'essence de Paradox à travers ses créations vidéo artistiques et innovantes.</p>
+                    <div class="member-social">
+                        <a href="https://youtube.com/@emma" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/emma" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <h2><i class="fas fa-star"></i> Mannequins</h2>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="media/team/model1.jpg" alt="Chloé Rousseau">
+                    <div class="member-role-badge"><i class="fas fa-camera"></i> Mannequin</div>
+                </div>
+                <div class="member-info">
+                    <h3>Chloé Rousseau</h3>
+                    <p class="role"><i class="fas fa-crown"></i> Mannequin Senior</p>
+                    <p class="bio">Expérience internationale en mode haute couture, Chloé apporte élégance et professionnalisme à l'agence.</p>
+                    <div class="member-social">
+                        <a href="https://instagram.com/chloe" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="media/team/model2.jpg" alt="Thomas Moreau">
+                    <div class="member-role-badge"><i class="fas fa-camera"></i> Mannequin</div>
+                </div>
+                <div class="member-info">
+                    <h3>Thomas Moreau</h3>
+                    <p class="role"><i class="fas fa-male"></i> Mannequin</p>
+                    <p class="bio">Spécialisé dans la mode urbaine et streetwear, Thomas incarne le style moderne et audacieux de Paradox.</p>
+                    <div class="member-social">
+                        <a href="https://instagram.com/thomas" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="media/team/model3.jpg" alt="Léa Bonnet">
+                    <div class="member-role-badge"><i class="fas fa-camera"></i> Mannequin</div>
+                </div>
+                <div class="member-info">
+                    <h3>Léa Bonnet</h3>
+                    <p class="role"><i class="fas fa-gem"></i> Mannequin / Influenceuse</p>
+                    <p class="bio">Avec son style unique et sa présence sur les réseaux sociaux, Léa inspire une communauté fidèle.</p>
+                    <div class="member-social">
+                        <a href="https://instagram.com/lea" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="media/team/model4.jpg" alt="Maxime Petit">
+                    <div class="member-role-badge"><i class="fas fa-camera"></i> Mannequin</div>
+                </div>
+                <div class="member-info">
+                    <h3>Maxime Petit</h3>
+                    <p class="role"><i class="fas fa-user-tie"></i> Mannequin</p>
+                    <p class="bio">Polyvalent et charismatique, Maxime excelle dans les shootings mode et les défilés prestigieux.</p>
+                    <div class="member-social">
+                        <a href="https://instagram.com/maxime" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Paradox</h4>
+                    <p>L'excellence artistique et l'innovation au cœur de tout ce que nous faisons.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="reglement.html">Règlement</a></li>
+                        <li><a href="carte.html">Carte</a></li>
+                        <li><a href="equipe.html">Équipe</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Rejoignez-nous</h4>
+                    <div class="social-links">
+                        <a href="https://w2g.tv" target="_blank"><i class="fas fa-video"></i></a>
+                        <a href="https://discord.gg" target="_blank"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paradox. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
