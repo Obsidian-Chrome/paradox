@@ -53,8 +53,17 @@ body {
 }
 
 .logo img {
-    height: 50px;
+    height: 70px;
     width: auto;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.logo img:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: scale(1.05);
 }
 
 .nav-links {
