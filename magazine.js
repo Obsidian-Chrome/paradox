@@ -6,6 +6,7 @@ let totalPages = 1;
 let currentEdition = null;
 let pdfDoc = null;
 let pageRendering = false;
+let pageCache = {};
 
 async function detectAvailableMagazines() {
     const grid = document.getElementById('magazinesGrid');
@@ -66,30 +67,21 @@ async function createMagazineCard(volumeNumber, pdfPath) {
     card.appendChild(info);
     grid.appendChild(card);
     
-    try {
-        const loadingTask = pdfjsLib.getDocument(pdfPath);
-        const pdf = await loadingTask.promise;
-        const page = await pdf.getPage(1);
-        
-        const canvas = document.createElement('canvas');
-        const viewport = page.getViewport({ scale: 1.0 });
-        const scale = 400 / viewport.height;
-        const scaledViewport = page.getViewport({ scale: scale });
-        
-        canvas.height = scaledViewport.height;
-        canvas.width = scaledViewport.width;
-        
-        await page.render({
-            canvasContext: canvas.getContext('2d'),
-            viewport: scaledViewport
-        }).promise;
-        
+    const thumbnailPath = `media/magazines/Paradox V${volumeNumber}.png`;
+    
+    const img = new Image();
+    img.onload = () => {
         cover.innerHTML = '';
-        cover.appendChild(canvas);
-    } catch (error) {
-        console.error('Erreur lors du chargement de la couverture:', error);
-        cover.innerHTML = '<div class="loading" style="color: var(--primary-pink);">Erreur</div>';
-    }
+        cover.appendChild(img);
+    };
+    img.onerror = () => {
+        console.error(`Erreur lors du chargement du thumbnail: ${thumbnailPath}`);
+        cover.innerHTML = '<div class="loading" style="color: var(--primary-pink);">Image introuvable</div>';
+    };
+    img.src = thumbnailPath;
+    img.style.maxWidth = '100%';
+    img.style.maxHeight = '100%';
+    img.style.objectFit = 'contain';
 }
 
 document.addEventListener('DOMContentLoaded', detectAvailableMagazines);
@@ -112,13 +104,15 @@ async function openMagazine(volumeNumber) {
         pdfDoc = await loadingTask.promise;
         totalPages = pdfDoc.numPages;
         
-        await preloadAllPages();
+        pageCache = {};
         
         currentPage = 1;
         await renderPages();
         
         loader.classList.add('hidden');
         updatePageIndicator();
+        
+        preloadAdjacentPages();
         
         document.addEventListener('keydown', handleKeyNavigation);
     } catch (error) {
@@ -129,15 +123,64 @@ async function openMagazine(volumeNumber) {
     }
 }
 
-async function preloadAllPages() {
-    const loaderText = document.querySelector('.loader-text');
+async function preloadAdjacentPages() {
+    const pagesToPreload = [];
     
-    for (let i = 1; i <= totalPages; i++) {
-        loaderText.textContent = `Chargement... ${i}/${totalPages}`;
-        await pdfDoc.getPage(i);
+    const isFirstPage = currentPage === 1;
+    const isLastPage = currentPage === totalPages;
+    
+    if (isFirstPage || isLastPage) {
+        if (currentPage - 1 >= 1) pagesToPreload.push(currentPage - 1);
+        if (currentPage + 1 <= totalPages) pagesToPreload.push(currentPage + 1);
+        if (currentPage + 2 <= totalPages) pagesToPreload.push(currentPage + 2);
+    } else {
+        for (let offset = -2; offset <= 3; offset++) {
+            const pageNum = currentPage + offset;
+            if (pageNum >= 1 && pageNum <= totalPages && !pageCache[pageNum]) {
+                pagesToPreload.push(pageNum);
+            }
+        }
     }
     
-    loaderText.textContent = 'Chargement du magazine...';
+    for (const pageNum of pagesToPreload) {
+        if (!pageCache[pageNum]) {
+            renderPageToCache(pageNum);
+        }
+    }
+}
+
+async function renderPageToCache(pageNum) {
+    if (pageCache[pageNum]) return pageCache[pageNum];
+    
+    try {
+        const page = await pdfDoc.getPage(pageNum);
+        const container = document.getElementById('pdfContainer');
+        const containerHeight = container.clientHeight;
+        
+        const viewport = page.getViewport({ scale: 1.0 });
+        const scale = containerHeight / viewport.height;
+        const scaledViewport = page.getViewport({ scale: scale });
+        
+        const canvas = document.createElement('canvas');
+        canvas.height = scaledViewport.height;
+        canvas.width = scaledViewport.width;
+        
+        await page.render({
+            canvasContext: canvas.getContext('2d'),
+            viewport: scaledViewport
+        }).promise;
+        
+        pageCache[pageNum] = {
+            canvas: canvas,
+            width: scaledViewport.width,
+            height: scaledViewport.height
+        };
+        
+        return pageCache[pageNum];
+    } catch (error) {
+        console.error(`Erreur lors du cache de la page ${pageNum}:`, error);
+        return null;
+    }
 }
 
 function handleKeyNavigation(event) {
@@ -160,6 +203,8 @@ function closeMagazine() {
     
     document.removeEventListener('keydown', handleKeyNavigation);
     
+    pageCache = {};
+    
     if (pdfDoc) {
         pdfDoc = null;
     }
@@ -171,80 +216,51 @@ async function renderPages() {
     
     const canvasLeft = document.getElementById('pdfPageLeft');
     const canvasRight = document.getElementById('pdfPageRight');
-    const container = document.getElementById('pdfContainer');
-    
-    const containerHeight = container.clientHeight;
     
     const isFirstPage = currentPage === 1;
     const isLastPage = currentPage === totalPages;
     
     if (isFirstPage || isLastPage) {
-        const page = await pdfDoc.getPage(currentPage);
-        const viewport = page.getViewport({ scale: 1.0 });
-        
-        const scale = containerHeight / viewport.height;
-        const scaledViewport = page.getViewport({ scale: scale });
-        
-        canvasLeft.height = scaledViewport.height;
-        canvasLeft.width = scaledViewport.width;
-        
-        const renderContext = {
-            canvasContext: canvasLeft.getContext('2d'),
-            viewport: scaledViewport
-        };
-        
-        await page.render(renderContext).promise;
-        canvasLeft.style.display = 'block';
+        const cached = await renderPageToCache(currentPage);
+        if (cached) {
+            canvasLeft.width = cached.width;
+            canvasLeft.height = cached.height;
+            canvasLeft.getContext('2d').drawImage(cached.canvas, 0, 0);
+            canvasLeft.style.display = 'block';
+        }
         canvasRight.style.display = 'none';
     } else {
         if (currentPage <= totalPages) {
-            const page = await pdfDoc.getPage(currentPage);
-            const viewport = page.getViewport({ scale: 1.0 });
-            
-            const scale = containerHeight / viewport.height;
-            const scaledViewport = page.getViewport({ scale: scale });
-            
-            canvasLeft.height = scaledViewport.height;
-            canvasLeft.width = scaledViewport.width;
-            
-            const renderContext = {
-                canvasContext: canvasLeft.getContext('2d'),
-                viewport: scaledViewport
-            };
-            
-            await page.render(renderContext).promise;
-            canvasLeft.style.display = 'block';
+            const cached = await renderPageToCache(currentPage);
+            if (cached) {
+                canvasLeft.width = cached.width;
+                canvasLeft.height = cached.height;
+                canvasLeft.getContext('2d').drawImage(cached.canvas, 0, 0);
+                canvasLeft.style.display = 'block';
+            }
         } else {
             canvasLeft.style.display = 'none';
         }
         
         if (currentPage + 1 <= totalPages) {
-            const page = await pdfDoc.getPage(currentPage + 1);
-            const viewport = page.getViewport({ scale: 1.0 });
-            
-            const scale = containerHeight / viewport.height;
-            const scaledViewport = page.getViewport({ scale: scale });
-            
-            canvasRight.height = scaledViewport.height;
-            canvasRight.width = scaledViewport.width;
-            
-            const renderContext = {
-                canvasContext: canvasRight.getContext('2d'),
-                viewport: scaledViewport
-            };
-            
-            await page.render(renderContext).promise;
-            canvasRight.style.display = 'block';
+            const cached = await renderPageToCache(currentPage + 1);
+            if (cached) {
+                canvasRight.width = cached.width;
+                canvasRight.height = cached.height;
+                canvasRight.getContext('2d').drawImage(cached.canvas, 0, 0);
+                canvasRight.style.display = 'block';
+            }
         } else {
             canvasRight.style.display = 'none';
         }
     }
     
     pageRendering = false;
+    preloadAdjacentPages();
 }
 
 async function previousPage() {
-    if (currentPage > 1) {
+    if (currentPage > 1 && !pageRendering) {
         if (currentPage === 2) {
             currentPage = 1;
         } else if (currentPage === totalPages) {
@@ -260,7 +276,7 @@ async function previousPage() {
 }
 
 async function nextPage() {
-    if (currentPage < totalPages) {
+    if (currentPage < totalPages && !pageRendering) {
         if (currentPage === 1) {
             currentPage = 2;
         } else if (currentPage + 1 >= totalPages) {
