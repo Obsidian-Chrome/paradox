@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carte - Paradox</title>
+    <title>Programme - Paradox</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="carte.css">
+    <link rel="stylesheet" href="programme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -17,11 +17,11 @@
             <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="reglement.html">Règlement</a></li>
-                <li><a href="carte.html" class="active">Carte</a></li>
+                <li><a href="carte.html">Carte</a></li>
                 <li><a href="equipe.html">Équipe</a></li>
                 <li><a href="merch.html">Merch</a></li>
                 <li><a href="magazine.html">Magazine</a></li>
-                <li><a href="programme.html">Programme</a></li>
+                <li><a href="programme.html" class="active">Programme</a></li>
                 <li><a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank" class="icon-link"><img src="media/w2g_logo.png" alt="Watch2Gether"></a></li>
                 <li><a href="https://discord.gg/9MaAJ3WnYC" target="_blank" class="icon-link"><i class="fab fa-discord"></i></a></li>
             </ul>
@@ -35,25 +35,29 @@
 
     <main class="container">
         <section class="page-header">
-            <h1>Notre Carte</h1>
-            <p>Découvrez nos créations culinaires et nos boissons</p>
+            <h1>Notre Programme</h1>
+            <p>Découvrez tous nos événements à venir</p>
         </section>
 
-        <section class="menu-section" id="basiques">
-            <!-- Chargé depuis data/carte.json -->
+        <section class="calendar-section">
+            <div class="calendar-header">
+                <button id="prevMonth" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+                <h2 id="currentMonth"></h2>
+                <button id="nextMonth" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Généré par JavaScript -->
+            </div>
         </section>
 
-        <section class="menu-section" id="petits_plats">
-            <!-- Chargé depuis data/carte.json -->
-        </section>
-
-        <section class="menu-section" id="cocktails">
-            <!-- Chargé depuis data/carte.json -->
-        </section>
-
-        <section class="menu-section" id="partenaires">
-            <!-- Chargé depuis data/carte.json -->
-        </section>
+        <!-- Modal pour afficher les détails de l'événement -->
+        <div id="eventModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="eventTitle"></h2>
+                <div id="eventDetails"></div>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -62,7 +66,7 @@
         </div>
     </footer>
 
+    <script src="programme.js"></script>
     <script src="script.js"></script>
-    <script src="carte.js"></script>
 </body>
 </html>

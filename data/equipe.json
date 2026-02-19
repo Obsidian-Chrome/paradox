@@ -1,51 +1,74 @@
 {
-  "artistes": [
-    {"nom": "Ombre", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Weiss", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Aqua", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Onyx", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Miss Pomme", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Zerick", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Yae", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Takeshi", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Void", "image": "media/team/placeholder.jpg", "youtube": ""},
+  "gerant": [
+    {"nom": "Yasha", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Shura", "image": "media/team/placeholder.jpg", "youtube": ""}
+  ],
+  "agent_production": [
     {"nom": "Quatre", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Snake", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Aelya", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Alaion", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Snake", "image": "media/team/placeholder.jpg", "youtube": ""}
+  ],
+  "garde_corps": [
+    {"nom": "Zhou", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Estella", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Aeglos", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "W'rohz", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "E'neriel", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Kieran", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Khal", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Void", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Salem", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Enginn", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Aelwin", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Takeshi", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Weiss", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Ramses", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Volos", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Khain", "image": "media/team/placeholder.jpg", "youtube": ""}
+  ],
+  "photographe": [
+    {"nom": "Aqua", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Ava", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Saru", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Rhoga", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Rose", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Ysha", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Shura", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Yae", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Rhoga", "image": "media/team/placeholder.jpg", "youtube": ""}
+  ],
+  "mascotte": [
+    {"nom": "Rose", "image": "media/team/placeholder.jpg", "youtube": ""}
+  ],
+  "artiste": [
+    {"nom": "Aqua", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Astra", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Dorothy", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Edwyn", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Ellen", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Gwenolie", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Vildvard", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Aube", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Ghostline", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Glitchtrap", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Hex", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Jackwood", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Kaïa", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Miss Pomme", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Kayden", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Nefrea", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Theliar", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Ombre", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Vekel", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Yae", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Yukii", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Yulina", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Weiss", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Yulina", "image": "media/team/placeholder.jpg", "youtube": ""}
+  ],
+  "mannequin": [
     {"nom": "Aedh", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Shana", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Eileen", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Indranil", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Ethan", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Estella", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Melegan", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Kaïa", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Oni de saphir", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "Sodazur", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Azurea", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Nefrea", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Aelwyn", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Melinda", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "L'Étalon", "image": "media/team/placeholder.jpg", "youtube": ""},
     {"nom": "La Vipère", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Astra", "image": "media/team/placeholder.jpg", "youtube": ""},
-    {"nom": "Vekel Svansson", "image": "media/team/placeholder.jpg", "youtube": ""}
-  ],
-  "mannequins": []
+    {"nom": "L'Étalon", "image": "media/team/placeholder.jpg", "youtube": ""},
+    {"nom": "Zerick", "image": "media/team/placeholder.jpg", "youtube": ""}
+  ]
 }

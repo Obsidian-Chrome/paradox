@@ -28,7 +28,6 @@ function createMerchCard(item) {
     const card = document.createElement('div');
     card.className = 'merch-item';
     card.dataset.name = item.nom.toLowerCase();
-    card.dataset.size = item.taille;
     card.dataset.compat = item.compatible.toLowerCase().replace('+', '');
     
     const tagsHTML = item.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
@@ -44,10 +43,9 @@ function createMerchCard(item) {
             <h3>${item.nom}</h3>
             <div class="merch-meta">
                 <span>Par <span class="modder">${item.auteur}</span></span>
-                <span>Taille: <span class="file-size">${item.taille} MB</span></span>
                 <span>Compatible: ${item.compatible}</span>
             </div>
-            <button class="download-btn" onclick="downloadItem('${item.fichier}')">
+            <button class="download-btn" onclick="downloadItem('${item.nom}')">
                 Télécharger
             </button>
         </div>
@@ -83,10 +81,6 @@ function sortMerch() {
                 return a.nom.localeCompare(b.nom);
             case 'name-desc':
                 return b.nom.localeCompare(a.nom);
-            case 'size':
-                return parseFloat(a.taille) - parseFloat(b.taille);
-            case 'size-desc':
-                return parseFloat(b.taille) - parseFloat(a.taille);
             default:
                 return 0;
         }
@@ -95,8 +89,44 @@ function sortMerch() {
     renderMerch(sorted);
 }
 
-function downloadItem(filename) {
-    alert(`Téléchargement de ${filename}...\n\nNote: Assurez-vous d'avoir les permissions nécessaires.`);
+let currentDownloadItem = null;
+
+function downloadItem(itemName) {
+    const item = merchData.find(i => i.nom === itemName);
+    if (!item) return;
+    
+    currentDownloadItem = item;
+    
+    const modal = document.getElementById('genderModal');
+    const modalItemName = document.getElementById('modalItemName');
+    
+    modalItemName.textContent = `Télécharger: ${item.nom}`;
+    modal.classList.add('active');
+}
+
+function closeGenderModal() {
+    const modal = document.getElementById('genderModal');
+    modal.classList.remove('active');
+    currentDownloadItem = null;
+}
+
+function confirmDownload(gender) {
+    if (!currentDownloadItem) return;
+    
+    const file = gender === 'masculin' ? currentDownloadItem.fichier_masculin : currentDownloadItem.fichier_feminin;
+    
+    if (file) {
+        const link = document.createElement('a');
+        link.href = `downloads/${file}`;
+        link.download = file;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        alert(`Le modèle ${gender} n'est pas disponible pour cet item.`);
+    }
+    
+    closeGenderModal();
 }
 
 document.addEventListener('DOMContentLoaded', loadMerch);

@@ -4,29 +4,32 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
 
 ## 📋 Fichiers JSON disponibles
 
-### 1. `data/equipe.json` - Équipe (Artistes & Mannequins)
+### 1. `data/equipe.json` - Équipe (toutes catégories)
 
 **Structure :**
 ```json
 {
-  "artistes": [
-    {
-      "nom": "Nom de l'artiste",
-      "image": "media/team/placeholder.jpg",
-      "youtube": "https://youtube.com/@chaine" (optionnel)
-    }
-  ],
-  "mannequins": [
-    {
-      "nom": "Nom du mannequin",
-      "image": "media/team/placeholder.jpg"
-    }
-  ]
+  "gerant": [...],
+  "agent_production": [...],
+  "garde_corps": [...],
+  "photographe": [...],
+  "mascotte": [...],
+  "artiste": [...],
+  "mannequin": [...]
 }
 ```
 
-**Champs :**
-- `nom` : Nom de l'artiste/mannequin
+**Catégories disponibles :**
+- `gerant` : Gérant
+- `agent_production` : Agent de production
+- `garde_corps` : Garde du corps
+- `photographe` : Photographe
+- `mascotte` : Mascotte
+- `artiste` : Artiste
+- `mannequin` : Mannequin
+
+**Champs par membre :**
+- `nom` : Nom du membre
 - `image` : Chemin vers l'image
 - `youtube` : Lien vers la chaîne YouTube (optionnel, affiche un badge si renseigné)
 
@@ -119,18 +122,20 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
 
 ## ✏️ Comment modifier le contenu
 
-### Ajouter un artiste
+### Ajouter un membre d'équipe
 
 1. Ouvrir `data/equipe.json`
-2. Ajouter une nouvelle entrée dans la liste `artistes` :
+2. Choisir la catégorie appropriée (`gerant`, `agent_production`, `garde_corps`, `photographe`, `mascotte`, `artiste`, `mannequin`)
+3. Ajouter une nouvelle entrée dans la liste :
 ```json
 {
-  "nom": "Nouveau Artiste",
-  "image": "media/team/placeholder.jpg"
+  "nom": "Nouveau Membre",
+  "image": "media/team/placeholder.jpg",
+  "youtube": ""
 }
 ```
-3. Sauvegarder le fichier
-4. Rafraîchir la page `equipe.html`
+4. Sauvegarder le fichier
+5. Rafraîchir la page `equipe.html`
 
 ### Ajouter un item de merch
 

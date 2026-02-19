@@ -9,13 +9,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 2rem;
             margin-top: 3rem;
+            justify-content: center;
         }
 
         .team-member {
+            width: 280px;
+            flex-shrink: 0;
             background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
@@ -37,12 +40,8 @@
         .member-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.3s ease;
-        }
-
-        .team-member:hover .member-image img {
-            transform: scale(1.1);
         }
 
         .member-role-badge {
@@ -139,7 +138,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <h2>PARADOX</h2>
+                <a href="index.html"><img src="media/paradox_logo.png" alt="Paradox Logo"></a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
@@ -148,8 +147,9 @@
                 <li><a href="equipe.html" class="active">Équipe</a></li>
                 <li><a href="merch.html">Merch</a></li>
                 <li><a href="magazine.html">Magazine</a></li>
-                <li><a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank">Watch2Gether</a></li>
-                <li><a href="https://discord.gg/9MaAJ3WnYC" target="_blank">Discord</a></li>
+                <li><a href="programme.html">Programme</a></li>
+                <li><a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank" class="icon-link"><img src="media/w2g_logo.png" alt="Watch2Gether"></a></li>
+                <li><a href="https://discord.gg/9MaAJ3WnYC" target="_blank" class="icon-link"><i class="fab fa-discord"></i></a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -162,52 +162,48 @@
     <main class="container">
         <section class="page-header">
             <h1>Notre Équipe</h1>
-            <p>Découvrez les artistes et mannequins qui font vivre Paradox</p>
+            <p>Découvrez tous les membres qui font vivre Paradox</p>
         </section>
 
         <div class="section-divider">
-            <h2>Artistes</h2>
+            <h2>Gérant</h2>
         </div>
-
-        <div class="team-grid" id="artistsGrid">
-            <!-- Les artistes seront chargés dynamiquement depuis data/equipe.json -->
-        </div>
+        <div class="team-grid" id="gerantGrid"></div>
 
         <div class="section-divider">
-            <h2>Mannequins</h2>
+            <h2>Agent de production</h2>
         </div>
+        <div class="team-grid" id="agent_productionGrid"></div>
 
-        <div class="team-grid" id="modelsGrid">
-            <!-- Les mannequins seront chargés dynamiquement depuis data/equipe.json -->
+        <div class="section-divider">
+            <h2>Garde du corps</h2>
         </div>
+        <div class="team-grid" id="garde_corpsGrid"></div>
+
+        <div class="section-divider">
+            <h2>Photographe</h2>
+        </div>
+        <div class="team-grid" id="photographeGrid"></div>
+
+        <div class="section-divider">
+            <h2>Mascotte</h2>
+        </div>
+        <div class="team-grid" id="mascotteGrid"></div>
+
+        <div class="section-divider">
+            <h2>Artiste</h2>
+        </div>
+        <div class="team-grid" id="artisteGrid"></div>
+
+        <div class="section-divider">
+            <h2>Mannequin</h2>
+        </div>
+        <div class="team-grid" id="mannequinGrid"></div>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Paradox</h4>
-                    <p>L'excellence artistique et l'innovation au cœur de tout ce que nous faisons.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Liens Rapides</h4>
-                    <ul>
-                        <li><a href="reglement.html">Règlement</a></li>
-                        <li><a href="carte.html">Carte</a></li>
-                        <li><a href="equipe.html">Équipe</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Rejoignez-nous</h4>
-                    <div class="social-links">
-                        <a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank"><i class="fas fa-video"></i></a>
-                        <a href="https://discord.gg/9MaAJ3WnYC" target="_blank"><i class="fab fa-discord"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Paradox. Tous droits réservés.</p>
-            </div>
+            <p><strong>Paradox</strong> &copy; 2026 - Tous droits réservés.</p>
         </div>
     </footer>
 

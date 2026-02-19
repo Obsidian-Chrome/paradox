@@ -1,32 +1,35 @@
+const categories = {
+    'gerant': 'Gérant',
+    'agent_production': 'Agent de production',
+    'garde_corps': 'Garde du corps',
+    'photographe': 'Photographe',
+    'mascotte': 'Mascotte',
+    'artiste': 'Artiste',
+    'mannequin': 'Mannequin'
+};
+
 async function loadTeam() {
     try {
         const response = await fetch('data/equipe.json');
         const data = await response.json();
         
-        const artistsGrid = document.getElementById('artistsGrid');
-        const modelsGrid = document.getElementById('modelsGrid');
-        
-        if (artistsGrid) {
-            artistsGrid.innerHTML = '';
-            data.artistes.forEach(artiste => {
-                const card = createTeamMemberCard(artiste, 'Artiste');
-                artistsGrid.appendChild(card);
-            });
-        }
-        
-        if (modelsGrid) {
-            modelsGrid.innerHTML = '';
-            data.mannequins.forEach(mannequin => {
-                const card = createTeamMemberCard(mannequin, 'Mannequin');
-                modelsGrid.appendChild(card);
-            });
+        for (const [key, label] of Object.entries(categories)) {
+            const grid = document.getElementById(`${key}Grid`);
+            
+            if (grid && data[key]) {
+                grid.innerHTML = '';
+                data[key].forEach(member => {
+                    const card = createTeamMemberCard(member);
+                    grid.appendChild(card);
+                });
+            }
         }
     } catch (error) {
         console.error('Erreur lors du chargement de l\'équipe:', error);
     }
 }
 
-function createTeamMemberCard(member, role) {
+function createTeamMemberCard(member) {
     const card = document.createElement('div');
     card.className = 'team-member';
     

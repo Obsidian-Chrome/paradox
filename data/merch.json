@@ -4,117 +4,117 @@
       "nom": "T-shirt Dorothy",
       "image": "media/merch/Dorothy.png",
       "auteur": "Vivaldi",
-      "taille": "3.2",
       "compatible": "TBSE+",
-      "fichier": "tshirt_dorothy.zip",
+      "fichier_masculin": "tshirt_dorothy_m.zip",
+      "fichier_feminin": "tshirt_dorothy_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Ellen",
       "image": "media/merch/Ellen.png",
       "auteur": "Vivaldi",
-      "taille": "2.8",
       "compatible": "YAB",
-      "fichier": "tshirt_ellen.zip",
+      "fichier_masculin": "tshirt_ellen_m.zip",
+      "fichier_feminin": "tshirt_ellen_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Funk Machine",
       "image": "media/merch/Funk_Machine.png",
       "auteur": "Vivaldi",
-      "taille": "3.5",
       "compatible": "Rue",
-      "fichier": "tshirt_funk_machine.zip",
+      "fichier_masculin": "tshirt_funk_machine_m.zip",
+      "fichier_feminin": "tshirt_funk_machine_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Funk Magic",
       "image": "media/merch/Funk_Magic.png",
       "auteur": "Vivaldi",
-      "taille": "2.9",
       "compatible": "Bibo",
-      "fichier": "tshirt_funk_magic.zip",
+      "fichier_masculin": "tshirt_funk_magic_m.zip",
+      "fichier_feminin": "tshirt_funk_magic_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Ghostline",
       "image": "media/merch/Ghostline.png",
       "auteur": "Vivaldi",
-      "taille": "3.1",
       "compatible": "TBSE+",
-      "fichier": "tshirt_ghostline.zip",
+      "fichier_masculin": "tshirt_ghostline_m.zip",
+      "fichier_feminin": "tshirt_ghostline_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Glitchtrap",
       "image": "media/merch/Glitchtrap.png",
       "auteur": "Vivaldi",
-      "taille": "2.7",
       "compatible": "YAB",
-      "fichier": "tshirt_glitchtrap.zip",
+      "fichier_masculin": "tshirt_glitchtrap_m.zip",
+      "fichier_feminin": "tshirt_glitchtrap_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Hex",
       "image": "media/merch/Hex.png",
       "auteur": "Vivaldi",
-      "taille": "3.4",
       "compatible": "Rue",
-      "fichier": "tshirt_hex.zip",
+      "fichier_masculin": "tshirt_hex_m.zip",
+      "fichier_feminin": "tshirt_hex_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Lucien",
       "image": "media/merch/Lucien.png",
       "auteur": "Vivaldi",
-      "taille": "3.0",
       "compatible": "Bibo",
-      "fichier": "tshirt_lucien.zip",
+      "fichier_masculin": "tshirt_lucien_m.zip",
+      "fichier_feminin": "tshirt_lucien_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Miss Pomme",
       "image": "media/merch/Miss_Pomme.png",
       "auteur": "Vivaldi",
-      "taille": "2.6",
       "compatible": "TBSE+",
-      "fichier": "tshirt_miss_pomme.zip",
+      "fichier_masculin": "tshirt_miss_pomme_m.zip",
+      "fichier_feminin": "tshirt_miss_pomme_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Ombre",
       "image": "media/merch/Ombre.png",
       "auteur": "Vivaldi",
-      "taille": "3.3",
       "compatible": "YAB",
-      "fichier": "tshirt_ombre.zip",
+      "fichier_masculin": "tshirt_ombre_m.zip",
+      "fichier_feminin": "tshirt_ombre_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Vekel Svansson",
       "image": "media/merch/Vekel_Svansson.png",
       "auteur": "Vivaldi",
-      "taille": "2.9",
       "compatible": "Rue",
-      "fichier": "tshirt_vekel_svansson.zip",
+      "fichier_masculin": "tshirt_vekel_svansson_m.zip",
+      "fichier_feminin": "tshirt_vekel_svansson_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Virus Machine",
       "image": "media/merch/Virus_Machine.png",
       "auteur": "Vivaldi",
-      "taille": "3.1",
       "compatible": "Bibo",
-      "fichier": "tshirt_virus_machine.zip",
+      "fichier_masculin": "tshirt_virus_machine_m.zip",
+      "fichier_feminin": "tshirt_virus_machine_f.zip",
       "tags": ["Vêtements", "PMP"]
     },
     {
       "nom": "T-shirt Yukii",
       "image": "media/merch/Yukii.png",
       "auteur": "Vivaldi",
-      "taille": "2.8",
       "compatible": "TBSE+",
-      "fichier": "tshirt_yukii.zip",
+      "fichier_masculin": "tshirt_yukii_m.zip",
+      "fichier_feminin": "tshirt_yukii_f.zip",
       "tags": ["Vêtements", "PMP"]
     }
   ]

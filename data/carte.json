@@ -1,68 +1,56 @@
 {
-  "cocktails_signature": [
+  "basiques": [
     {
-      "nom": "Paradox Dream",
-      "description": "Vodka, curaçao bleu, jus d'ananas, sirop de vanille",
-      "prix": "14€",
-      "image": "media/cocktails/paradox_dream.jpg"
+      "nom": "Les thés",
+      "variantes": ["Noir", "Vert", "Blanc", "Oolong", "Fumée", "Rooibos", "Rolambaie", "Jasmin", "Pêche", "Cerise", "Framboise", "Menche", "Ishgardais", "Hingashin", "Thavnairois"],
+      "prix": "4 gils",
+      "createur": ""
     },
     {
-      "nom": "Pink Fusion",
-      "description": "Gin rose, liqueur de framboise, prosecco, citron vert",
-      "prix": "16€",
-      "image": "media/cocktails/pink_fusion.jpg"
+      "nom": "Les jus",
+      "variantes": ["Multifruit", "Orange", "Mandarine", "Rolambaie", "Cerise", "Pêche", "Framboise", "Mangue", "Citron", "Raison", "Pastèque", "Ananas", "Kiwi", "Banane"],
+      "prix": "3,50 gils",
+      "createur": ""
     },
     {
-      "nom": "Purple Haze",
-      "description": "Rhum blanc, crème de violette, jus de citron, sirop de sucre",
-      "prix": "15€",
-      "image": "media/cocktails/purple_haze.jpg"
+      "nom": "Les cafés",
+      "variantes": ["Espresso", "Risetto", "Lungo", "Doppio", "Café au lait", "Latte", "Cappuccino", "Noisette", "Macchiato"],
+      "prix": "4,50 gils",
+      "createur": ""
     },
     {
-      "nom": "Electric Blue",
-      "description": "Tequila, curaçao bleu, jus de citron, eau gazeuse",
-      "prix": "13€",
-      "image": "media/cocktails/electric_blue.jpg"
+      "nom": "Les chocolats chauds",
+      "variantes": ["Lait", "Caramel salé", "Guimauve", "Chocolat blanc", "Amande", "Beurre d'arachide", "Érable et caramel", "Framboise", "Noix de coco", "Viennois"],
+      "prix": "4,50 gils",
+      "createur": ""
     }
   ],
-  "classiques": [
+  "petits_plats": [
     {
-      "nom": "Mojito Paradox",
-      "description": "Rhum blanc, menthe fraîche, fruits rouges, soda",
-      "prix": "12€",
-      "image": "media/cocktails/mojito_paradox.jpg"
+      "nom": "Rock'nRibs",
+      "description": "Côtes levées caramélisées au whisky et au poivre noir, servies avec une purée fumée aux éclats de bacon croustillants.",
+      "prix": "",
+      "createur": ""
     },
     {
-      "nom": "Cosmopolitan Art",
-      "description": "Vodka citron, Cointreau, jus de cranberry, zeste d'orange",
-      "prix": "14€",
-      "image": "media/cocktails/cosmopolitan_art.jpg"
+      "nom": "Classique en Croûte",
+      "description": "Filet de bar en croûte de pâte feuilletée, farci de champignons à la truffe et d'épinards fondus.",
+      "prix": "",
+      "createur": ""
     },
     {
-      "nom": "Margarita Twist",
-      "description": "Tequila, triple sec, jus de citron vert, piment d'Espelette",
-      "prix": "13€",
-      "image": "media/cocktails/margarita_twist.jpg"
+      "nom": "Soul Bowl",
+      "description": "Bol chaud de patates douces rôties, pois chiches épicés, avocat, oignons confits et sauce tahini au citron.",
+      "prix": "",
+      "createur": ""
     },
     {
-      "nom": "Old Fashioned Deluxe",
-      "description": "Bourbon, angostura bitters, sirop d'érable, écorce d'orange",
-      "prix": "16€",
-      "image": "media/cocktails/old_fashioned_deluxe.jpg"
+      "nom": "Electro Sushi",
+      "description": "Sushis revisités avec gelée de yuzu, perles de wasabi, feuille d'algue croustillante et mousse de gingembre.",
+      "prix": "",
+      "createur": ""
     }
   ],
-  "sans_alcool": [
-    {
-      "nom": "Virgin Paradox",
-      "description": "Jus d'ananas, sirop de grenadine, soda, citron vert",
-      "prix": "8€",
-      "image": "media/cocktails/virgin_paradox.jpg"
-    },
-    {
-      "nom": "Fruit Explosion",
-      "description": "Cocktail de fruits frais, menthe, eau gazeuse",
-      "prix": "9€",
-      "image": "media/cocktails/fruit_explosion.jpg"
-    }
-  ]
+  "cocktails": [],
+  "partenaires": []
 }

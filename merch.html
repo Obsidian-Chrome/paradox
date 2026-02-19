@@ -204,13 +204,79 @@
             color: var(--gray-text);
             font-size: 1.2rem;
         }
+
+        .gender-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gender-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .modal-content p {
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .gender-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .gender-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gender-btn:hover {
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.4);
+        }
+
+        .gender-btn.cancel {
+            background: linear-gradient(135deg, #666, #888);
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <h2>PARADOX</h2>
+                <a href="index.html"><img src="media/paradox_logo.png" alt="Paradox Logo"></a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
@@ -219,8 +285,9 @@
                 <li><a href="equipe.html">Équipe</a></li>
                 <li><a href="merch.html" class="active">Merch</a></li>
                 <li><a href="magazine.html">Magazine</a></li>
-                <li><a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank">Watch2Gether</a></li>
-                <li><a href="https://discord.gg/9MaAJ3WnYC" target="_blank">Discord</a></li>
+                <li><a href="programme.html">Programme</a></li>
+                <li><a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank" class="icon-link"><img src="media/w2g_logo.png" alt="Watch2Gether"></a></li>
+                <li><a href="https://discord.gg/9MaAJ3WnYC" target="_blank" class="icon-link"><i class="fab fa-discord"></i></a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -246,8 +313,6 @@
                 <select id="sortSelect" onchange="sortMerch()">
                     <option value="name">Nom (A-Z)</option>
                     <option value="name-desc">Nom (Z-A)</option>
-                    <option value="size">Taille (Plus petit)</option>
-                    <option value="size-desc">Taille (Plus grand)</option>
                 </select>
 
                 <label>Compatibilité:</label>
@@ -268,32 +333,21 @@
         </section>
     </main>
 
+    <div class="gender-modal" id="genderModal">
+        <div class="modal-content">
+            <h2>Choisissez le modèle</h2>
+            <p id="modalItemName"></p>
+            <div class="gender-buttons">
+                <button class="gender-btn" onclick="confirmDownload('masculin')">Masculin</button>
+                <button class="gender-btn" onclick="confirmDownload('feminin')">Féminin</button>
+                <button class="gender-btn cancel" onclick="closeGenderModal()">Annuler</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Paradox</h4>
-                    <p>L'excellence artistique et l'innovation au cœur de tout ce que nous faisons.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Liens Rapides</h4>
-                    <ul>
-                        <li><a href="reglement.html">Règlement</a></li>
-                        <li><a href="carte.html">Carte</a></li>
-                        <li><a href="equipe.html">Équipe</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Rejoignez-nous</h4>
-                    <div class="social-links">
-                        <a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank"><i class="fas fa-video"></i></a>
-                        <a href="https://discord.gg/9MaAJ3WnYC" target="_blank"><i class="fab fa-discord"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Paradox. Tous droits réservés.</p>
-            </div>
+            <p><strong>Paradox</strong> &copy; 2026 - Tous droits réservés.</p>
         </div>
     </footer>
 
