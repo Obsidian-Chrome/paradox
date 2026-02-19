@@ -27,7 +27,7 @@
   ],
   "petits_plats": [
     {
-      "nom": "Rock'nRibs",
+      "nom": "Rock'n'Ribs",
       "description": "Côtes levées caramélisées au whisky et au poivre noir, servies avec une purée fumée aux éclats de bacon croustillants.",
       "prix": "",
       "createur": ""
@@ -51,6 +51,31 @@
       "createur": ""
     }
   ],
-  "cocktails": [],
+  "cocktails": [
+    {
+      "nom": "Cendres Silencieuses",
+      "description": "Whisky tourbé, liqueur de cerise noire, Amaro Averna, Bitter Café, zeste d'orange brulé et glaçon de pierre noire.",
+      "prix": "",
+      "createur": "Void"
+    },
+    {
+      "nom": "Onyx Bliss",
+      "description": "Rhum ambré, whisky fumé, triple sec, absynthe, jus d'orange, citron vert, angostura bitters, glaçons.",
+      "prix": "",
+      "createur": "Onyx"
+    },
+    {
+      "nom": "Le Nounours Velours",
+      "description": "Lait d'amande vanillé, crème de coco, purée de fraise, sirop de guimauve, eau de rose, glaçons pilés, chantilly, mini-marshmallows et copeaux de chocolat blanc.",
+      "prix": "",
+      "createur": "Volos"
+    },
+    {
+      "nom": "Le Viéra Fumé",
+      "description": "Bourbon, marshmallows, sauce piquante, trait de bitter et une pincée de cacao.",
+      "prix": "",
+      "createur": "Theliar"
+    }
+  ],
   "partenaires": []
 }
