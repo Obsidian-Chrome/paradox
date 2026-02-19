@@ -52,18 +52,20 @@ body {
     align-items: center;
 }
 
-.logo img {
-    height: 70px;
-    width: auto;
-    padding: 8px 15px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+.logo h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-pink), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
     transition: all 0.3s ease;
 }
 
-.logo img:hover {
-    background: rgba(255, 255, 255, 0.12);
-    transform: scale(1.05);
+.logo h2:hover {
+    opacity: 0.8;
 }
 
 .nav-links {
@@ -89,7 +91,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    transform: translateY(-2px);
 }
 
 .burger {
@@ -116,6 +117,15 @@ body {
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
+}
+
+.hero-logo {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    filter: drop-shadow(0 10px 30px rgba(74, 144, 226, 0.4));
 }
 
 .hero-content p {
@@ -237,7 +247,6 @@ section h2 {
 
 .dot.active {
     background: var(--primary-pink);
-    transform: scale(1.2);
 }
 
 .info-cards {
@@ -257,9 +266,7 @@ section h2 {
 }
 
 .card:hover {
-    transform: translateY(-10px);
     border: 2px solid var(--primary-blue);
-    box-shadow: 0 10px 40px rgba(74, 144, 226, 0.3);
 }
 
 .card-icon {
@@ -342,7 +349,6 @@ footer {
 
 .social-links a:hover {
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
-    transform: scale(1.1);
 }
 
 .footer-bottom {

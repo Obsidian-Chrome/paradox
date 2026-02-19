@@ -1,0 +1,19 @@
+{
+  "magazines": [
+    {
+      "titre": "Paradox Magazine - Volume 1",
+      "pdf": "media/magazines/Paradox V1.pdf",
+      "couverture": "media/magazines/Paradox V1.png"
+    },
+    {
+      "titre": "Paradox Magazine - Volume 2",
+      "pdf": "media/magazines/Paradox V2.pdf",
+      "couverture": "media/magazines/Paradox V2.png"
+    },
+    {
+      "titre": "Paradox Magazine - Volume 3",
+      "pdf": "media/magazines/Paradox V3.pdf",
+      "couverture": "media/magazines/Paradox V3.png"
+    }
+  ]
+}

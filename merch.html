@@ -52,8 +52,7 @@
         }
 
         .search-bar button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
         }
 
         .filters {
@@ -100,8 +99,7 @@
         }
 
         .merch-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(155, 89, 182, 0.4);
+            box-shadow: 0 8px 25px rgba(155, 89, 182, 0.3);
         }
 
         .merch-preview {
@@ -197,8 +195,7 @@
         }
 
         .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.4);
+            box-shadow: 0 4px 12px rgba(155, 89, 182, 0.3);
         }
 
         .no-results {
@@ -213,17 +210,17 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <img src="media/paradox_logo.png" alt="Paradox Logo">
+                <h2>PARADOX</h2>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-                <li><a href="reglement.html"><i class="fas fa-gavel"></i> Règlement</a></li>
-                <li><a href="carte.html"><i class="fas fa-cocktail"></i> Carte</a></li>
-                <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
-                <li><a href="merch.html" class="active"><i class="fas fa-shopping-bag"></i> Merch</a></li>
-                <li><a href="magazine.html"><i class="fas fa-book"></i> Magazine</a></li>
-                <li><a href="https://w2g.tv" target="_blank"><i class="fas fa-video"></i> Watch2Gether</a></li>
-                <li><a href="https://discord.gg" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="reglement.html">Règlement</a></li>
+                <li><a href="carte.html">Carte</a></li>
+                <li><a href="equipe.html">Équipe</a></li>
+                <li><a href="merch.html" class="active">Merch</a></li>
+                <li><a href="magazine.html">Magazine</a></li>
+                <li><a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank">Watch2Gether</a></li>
+                <li><a href="https://discord.gg/9MaAJ3WnYC" target="_blank">Discord</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -235,17 +232,17 @@
 
     <main class="container">
         <section class="page-header">
-            <h1><i class="fas fa-shopping-bag"></i> Merchandise Paradox</h1>
+            <h1>Merchandise Paradox</h1>
             <p>Téléchargez nos créations exclusives</p>
         </section>
 
         <section class="merch-controls">
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Rechercher un item...">
-                <button onclick="filterMerch()"><i class="fas fa-search"></i> Rechercher</button>
+                <button onclick="filterMerch()">Rechercher</button>
             </div>
             <div class="filters">
-                <label><i class="fas fa-sort"></i> Trier par:</label>
+                <label>Trier par:</label>
                 <select id="sortSelect" onchange="sortMerch()">
                     <option value="name">Nom (A-Z)</option>
                     <option value="name-desc">Nom (Z-A)</option>
@@ -253,7 +250,7 @@
                     <option value="size-desc">Taille (Plus grand)</option>
                 </select>
 
-                <label><i class="fas fa-filter"></i> Compatibilité:</label>
+                <label>Compatibilité:</label>
                 <select id="compatFilter" onchange="filterMerch()">
                     <option value="all">Toutes</option>
                     <option value="tbse">TBSE+</option>
@@ -266,278 +263,7 @@
 
         <section id="merchContainer">
             <div class="merch-grid">
-                <div class="merch-item" data-name="t-shirt dorothy" data-size="3.2" data-compat="tbse">
-                    <div class="merch-preview">
-                        <img src="media/merch/Dorothy.png" alt="Dorothy">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Dorothy</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">3.2 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: TBSE+</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_dorothy.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt ellen" data-size="2.8" data-compat="yab">
-                    <div class="merch-preview">
-                        <img src="media/merch/Ellen.png" alt="Ellen">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Ellen</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">2.8 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: YAB</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_ellen.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt funk machine" data-size="3.5" data-compat="rue">
-                    <div class="merch-preview">
-                        <img src="media/merch/Funk_Machine.png" alt="Funk Machine">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Funk Machine</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">3.5 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: Rue</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_funk_machine.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt funk magic" data-size="2.9" data-compat="bibo">
-                    <div class="merch-preview">
-                        <img src="media/merch/Funk_Magic.png" alt="Funk Magic">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Funk Magic</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">2.9 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: Bibo</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_funk_magic.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt ghostline" data-size="3.1" data-compat="tbse">
-                    <div class="merch-preview">
-                        <img src="media/merch/Ghostline.png" alt="Ghostline">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Ghostline</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">3.1 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: TBSE+</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_ghostline.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt glitchtrap" data-size="2.7" data-compat="yab">
-                    <div class="merch-preview">
-                        <img src="media/merch/Glitchtrap.png" alt="Glitchtrap">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Glitchtrap</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">2.7 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: YAB</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_glitchtrap.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt hex" data-size="3.4" data-compat="rue">
-                    <div class="merch-preview">
-                        <img src="media/merch/Hex.png" alt="Hex">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Hex</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">3.4 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: Rue</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_hex.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt lucien" data-size="3.0" data-compat="bibo">
-                    <div class="merch-preview">
-                        <img src="media/merch/Lucien.png" alt="Lucien">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Lucien</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">3.0 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: Bibo</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_lucien.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt miss pomme" data-size="2.6" data-compat="tbse">
-                    <div class="merch-preview">
-                        <img src="media/merch/Miss_Pomme.png" alt="Miss Pomme">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Miss Pomme</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">2.6 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: TBSE+</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_miss_pomme.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt ombre" data-size="3.3" data-compat="yab">
-                    <div class="merch-preview">
-                        <img src="media/merch/Ombre.png" alt="Ombre">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Ombre</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">3.3 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: YAB</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_ombre.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt vekel svansson" data-size="2.9" data-compat="rue">
-                    <div class="merch-preview">
-                        <img src="media/merch/Vekel_Svansson.png" alt="Vekel Svansson">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Vekel Svansson</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">2.9 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: Rue</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_vekel_svansson.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt virus machine" data-size="3.1" data-compat="bibo">
-                    <div class="merch-preview">
-                        <img src="media/merch/Virus_Machine.png" alt="Virus Machine">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Virus Machine</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">3.1 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: Bibo</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_virus_machine.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
-
-                <div class="merch-item" data-name="t-shirt yukii" data-size="2.8" data-compat="tbse">
-                    <div class="merch-preview">
-                        <img src="media/merch/Yukii.png" alt="Yukii">
-                        <div class="merch-tags">
-                            <span class="tag">Vêtements</span>
-                            <span class="tag">PMP</span>
-                        </div>
-                    </div>
-                    <div class="merch-details">
-                        <h3>T-shirt Yukii</h3>
-                        <div class="merch-meta">
-                            <span><i class="fas fa-user"></i> Par <span class="modder">Vivaldi</span></span>
-                            <span><i class="fas fa-database"></i> Taille: <span class="file-size">2.8 MB</span></span>
-                            <span><i class="fas fa-check-circle"></i> Compatible: TBSE+</span>
-                        </div>
-                        <button class="download-btn" onclick="downloadItem('tshirt_yukii.zip')">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
-                </div>
+                <!-- Les items seront chargés depuis data/merch.json -->
             </div>
         </section>
     </main>
@@ -560,8 +286,8 @@
                 <div class="footer-section">
                     <h4>Rejoignez-nous</h4>
                     <div class="social-links">
-                        <a href="https://w2g.tv" target="_blank"><i class="fas fa-video"></i></a>
-                        <a href="https://discord.gg" target="_blank"><i class="fab fa-discord"></i></a>
+                        <a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank"><i class="fas fa-video"></i></a>
+                        <a href="https://discord.gg/9MaAJ3WnYC" target="_blank"><i class="fab fa-discord"></i></a>
                     </div>
                 </div>
             </div>

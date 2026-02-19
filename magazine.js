@@ -14,46 +14,36 @@ async function detectAvailableMagazines() {
     
     editionData = {};
     
-    let volumeNumber = 1;
-    let consecutiveFails = 0;
-    
-    while (consecutiveFails < 3) {
-        const filename = `Paradox V${volumeNumber}.pdf`;
-        const path = `media/magazines/${filename}`;
+    try {
+        const response = await fetch('data/magazines.json');
+        const data = await response.json();
         
-        try {
-            const response = await fetch(path, { method: 'HEAD' });
-            
-            if (response.ok) {
-                editionData[volumeNumber] = {
-                    title: `Paradox Magazine - Volume ${volumeNumber}`,
-                    description: `Le volume ${volumeNumber} de Paradox Magazine.`,
-                    filename: filename
+        if (data.magazines && data.magazines.length > 0) {
+            data.magazines.forEach((magazine, index) => {
+                editionData[index] = {
+                    title: magazine.titre,
+                    pdf: magazine.pdf,
+                    couverture: magazine.couverture
                 };
                 
-                await createMagazineCard(volumeNumber, path);
-                consecutiveFails = 0;
-            } else {
-                consecutiveFails++;
-            }
-        } catch (error) {
-            consecutiveFails++;
+                createMagazineCard(index);
+            });
+        } else {
+            grid.innerHTML = '<p style="text-align: center; color: var(--gray-text);">Aucun magazine trouvé</p>';
         }
-        
-        volumeNumber++;
-    }
-    
-    if (Object.keys(editionData).length === 0) {
-        grid.innerHTML = '<p style="text-align: center; color: var(--gray-text);">Aucun magazine trouvé</p>';
+    } catch (error) {
+        console.error('Erreur lors du chargement des magazines:', error);
+        grid.innerHTML = '<p style="text-align: center; color: var(--gray-text);">Erreur lors du chargement des magazines</p>';
     }
 }
 
-async function createMagazineCard(volumeNumber, pdfPath) {
+function createMagazineCard(index) {
     const grid = document.getElementById('magazinesGrid');
+    const edition = editionData[index];
     
     const card = document.createElement('div');
     card.className = 'magazine-card';
-    card.onclick = () => openMagazine(volumeNumber);
+    card.onclick = () => openMagazine(index);
     
     const cover = document.createElement('div');
     cover.className = 'magazine-cover';
@@ -61,13 +51,11 @@ async function createMagazineCard(volumeNumber, pdfPath) {
     
     const info = document.createElement('div');
     info.className = 'magazine-info';
-    info.innerHTML = `<h3>${editionData[volumeNumber].title}</h3>`;
+    info.innerHTML = `<h3>${edition.title}</h3>`;
     
     card.appendChild(cover);
     card.appendChild(info);
     grid.appendChild(card);
-    
-    const thumbnailPath = `media/magazines/Paradox V${volumeNumber}.png`;
     
     const img = new Image();
     img.onload = () => {
@@ -75,10 +63,10 @@ async function createMagazineCard(volumeNumber, pdfPath) {
         cover.appendChild(img);
     };
     img.onerror = () => {
-        console.error(`Erreur lors du chargement du thumbnail: ${thumbnailPath}`);
+        console.error(`Erreur lors du chargement du thumbnail: ${edition.couverture}`);
         cover.innerHTML = '<div class="loading" style="color: var(--primary-pink);">Image introuvable</div>';
     };
-    img.src = thumbnailPath;
+    img.src = edition.couverture;
     img.style.maxWidth = '100%';
     img.style.maxHeight = '100%';
     img.style.objectFit = 'contain';
@@ -86,9 +74,9 @@ async function createMagazineCard(volumeNumber, pdfPath) {
 
 document.addEventListener('DOMContentLoaded', detectAvailableMagazines);
 
-async function openMagazine(volumeNumber) {
-    currentEdition = volumeNumber;
-    const edition = editionData[volumeNumber];
+async function openMagazine(index) {
+    currentEdition = index;
+    const edition = editionData[index];
     
     const viewer = document.getElementById('bookViewer');
     const loader = document.getElementById('pdfLoader');
@@ -97,7 +85,7 @@ async function openMagazine(volumeNumber) {
     viewer.style.display = 'flex';
     loader.classList.remove('hidden');
     
-    const pdfPath = `media/magazines/${edition.filename}`;
+    const pdfPath = edition.pdf;
     
     try {
         const loadingTask = pdfjsLib.getDocument(pdfPath);

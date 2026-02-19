@@ -1,0 +1,121 @@
+{
+  "items": [
+    {
+      "nom": "T-shirt Dorothy",
+      "image": "media/merch/Dorothy.png",
+      "auteur": "Vivaldi",
+      "taille": "3.2",
+      "compatible": "TBSE+",
+      "fichier": "tshirt_dorothy.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Ellen",
+      "image": "media/merch/Ellen.png",
+      "auteur": "Vivaldi",
+      "taille": "2.8",
+      "compatible": "YAB",
+      "fichier": "tshirt_ellen.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Funk Machine",
+      "image": "media/merch/Funk_Machine.png",
+      "auteur": "Vivaldi",
+      "taille": "3.5",
+      "compatible": "Rue",
+      "fichier": "tshirt_funk_machine.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Funk Magic",
+      "image": "media/merch/Funk_Magic.png",
+      "auteur": "Vivaldi",
+      "taille": "2.9",
+      "compatible": "Bibo",
+      "fichier": "tshirt_funk_magic.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Ghostline",
+      "image": "media/merch/Ghostline.png",
+      "auteur": "Vivaldi",
+      "taille": "3.1",
+      "compatible": "TBSE+",
+      "fichier": "tshirt_ghostline.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Glitchtrap",
+      "image": "media/merch/Glitchtrap.png",
+      "auteur": "Vivaldi",
+      "taille": "2.7",
+      "compatible": "YAB",
+      "fichier": "tshirt_glitchtrap.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Hex",
+      "image": "media/merch/Hex.png",
+      "auteur": "Vivaldi",
+      "taille": "3.4",
+      "compatible": "Rue",
+      "fichier": "tshirt_hex.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Lucien",
+      "image": "media/merch/Lucien.png",
+      "auteur": "Vivaldi",
+      "taille": "3.0",
+      "compatible": "Bibo",
+      "fichier": "tshirt_lucien.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Miss Pomme",
+      "image": "media/merch/Miss_Pomme.png",
+      "auteur": "Vivaldi",
+      "taille": "2.6",
+      "compatible": "TBSE+",
+      "fichier": "tshirt_miss_pomme.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Ombre",
+      "image": "media/merch/Ombre.png",
+      "auteur": "Vivaldi",
+      "taille": "3.3",
+      "compatible": "YAB",
+      "fichier": "tshirt_ombre.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Vekel Svansson",
+      "image": "media/merch/Vekel_Svansson.png",
+      "auteur": "Vivaldi",
+      "taille": "2.9",
+      "compatible": "Rue",
+      "fichier": "tshirt_vekel_svansson.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Virus Machine",
+      "image": "media/merch/Virus_Machine.png",
+      "auteur": "Vivaldi",
+      "taille": "3.1",
+      "compatible": "Bibo",
+      "fichier": "tshirt_virus_machine.zip",
+      "tags": ["Vêtements", "PMP"]
+    },
+    {
+      "nom": "T-shirt Yukii",
+      "image": "media/merch/Yukii.png",
+      "auteur": "Vivaldi",
+      "taille": "2.8",
+      "compatible": "TBSE+",
+      "fichier": "tshirt_yukii.zip",
+      "tags": ["Vêtements", "PMP"]
+    }
+  ]
+}

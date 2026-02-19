@@ -1,60 +1,102 @@
+let merchData = [];
+
+async function loadMerch() {
+    try {
+        const response = await fetch('data/merch.json');
+        const data = await response.json();
+        merchData = data.items;
+        
+        renderMerch(merchData);
+    } catch (error) {
+        console.error('Erreur lors du chargement du merch:', error);
+    }
+}
+
+function renderMerch(items) {
+    const grid = document.querySelector('.merch-grid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    items.forEach(item => {
+        const card = createMerchCard(item);
+        grid.appendChild(card);
+    });
+}
+
+function createMerchCard(item) {
+    const card = document.createElement('div');
+    card.className = 'merch-item';
+    card.dataset.name = item.nom.toLowerCase();
+    card.dataset.size = item.taille;
+    card.dataset.compat = item.compatible.toLowerCase().replace('+', '');
+    
+    const tagsHTML = item.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+    
+    card.innerHTML = `
+        <div class="merch-preview">
+            <img src="${item.image}" alt="${item.nom}">
+            <div class="merch-tags">
+                ${tagsHTML}
+            </div>
+        </div>
+        <div class="merch-details">
+            <h3>${item.nom}</h3>
+            <div class="merch-meta">
+                <span>Par <span class="modder">${item.auteur}</span></span>
+                <span>Taille: <span class="file-size">${item.taille} MB</span></span>
+                <span>Compatible: ${item.compatible}</span>
+            </div>
+            <button class="download-btn" onclick="downloadItem('${item.fichier}')">
+                Télécharger
+            </button>
+        </div>
+    `;
+    
+    return card;
+}
+
 function filterMerch() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const compatFilter = document.getElementById('compatFilter').value;
-    const items = document.querySelectorAll('.merch-item');
-    let visibleCount = 0;
-
-    items.forEach(item => {
-        const name = item.dataset.name.toLowerCase();
-        const compat = item.dataset.compat;
-        
-        const matchesSearch = name.includes(searchTerm);
-        const matchesCompat = compatFilter === 'all' || compat === compatFilter;
-        
-        if (matchesSearch && matchesCompat) {
-            item.style.display = 'flex';
-            visibleCount++;
-        } else {
-            item.style.display = 'none';
-        }
-    });
-
-    const container = document.getElementById('merchContainer');
-    const existingNoResults = container.querySelector('.no-results');
     
-    if (visibleCount === 0 && !existingNoResults) {
-        const noResults = document.createElement('div');
-        noResults.className = 'no-results';
-        noResults.innerHTML = '<i class="fas fa-search"></i><br>Aucun résultat trouvé';
-        container.appendChild(noResults);
-    } else if (visibleCount > 0 && existingNoResults) {
-        existingNoResults.remove();
+    const filtered = merchData.filter(item => {
+        const matchesSearch = item.nom.toLowerCase().includes(searchTerm);
+        const matchesCompat = compatFilter === 'all' || item.compatible.toLowerCase().replace('+', '') === compatFilter;
+        return matchesSearch && matchesCompat;
+    });
+    
+    renderMerch(filtered);
+    
+    if (filtered.length === 0) {
+        const grid = document.querySelector('.merch-grid');
+        grid.innerHTML = '<div class="no-results"><i class="fas fa-search"></i><br>Aucun résultat trouvé</div>';
     }
 }
 
 function sortMerch() {
     const sortValue = document.getElementById('sortSelect').value;
-    const container = document.querySelector('.merch-grid');
-    const items = Array.from(document.querySelectorAll('.merch-item'));
     
-    items.sort((a, b) => {
+    const sorted = [...merchData].sort((a, b) => {
         switch(sortValue) {
             case 'name':
-                return a.dataset.name.localeCompare(b.dataset.name);
+                return a.nom.localeCompare(b.nom);
             case 'name-desc':
-                return b.dataset.name.localeCompare(a.dataset.name);
+                return b.nom.localeCompare(a.nom);
             case 'size':
-                return parseFloat(a.dataset.size) - parseFloat(b.dataset.size);
+                return parseFloat(a.taille) - parseFloat(b.taille);
             case 'size-desc':
-                return parseFloat(b.dataset.size) - parseFloat(a.dataset.size);
+                return parseFloat(b.taille) - parseFloat(a.taille);
             default:
                 return 0;
         }
     });
     
-    items.forEach(item => container.appendChild(item));
+    renderMerch(sorted);
 }
 
 function downloadItem(filename) {
     alert(`Téléchargement de ${filename}...\n\nNote: Assurez-vous d'avoir les permissions nécessaires.`);
 }
+
+document.addEventListener('DOMContentLoaded', loadMerch);

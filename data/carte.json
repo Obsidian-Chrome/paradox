@@ -1,0 +1,68 @@
+{
+  "cocktails_signature": [
+    {
+      "nom": "Paradox Dream",
+      "description": "Vodka, curaçao bleu, jus d'ananas, sirop de vanille",
+      "prix": "14€",
+      "image": "media/cocktails/paradox_dream.jpg"
+    },
+    {
+      "nom": "Pink Fusion",
+      "description": "Gin rose, liqueur de framboise, prosecco, citron vert",
+      "prix": "16€",
+      "image": "media/cocktails/pink_fusion.jpg"
+    },
+    {
+      "nom": "Purple Haze",
+      "description": "Rhum blanc, crème de violette, jus de citron, sirop de sucre",
+      "prix": "15€",
+      "image": "media/cocktails/purple_haze.jpg"
+    },
+    {
+      "nom": "Electric Blue",
+      "description": "Tequila, curaçao bleu, jus de citron, eau gazeuse",
+      "prix": "13€",
+      "image": "media/cocktails/electric_blue.jpg"
+    }
+  ],
+  "classiques": [
+    {
+      "nom": "Mojito Paradox",
+      "description": "Rhum blanc, menthe fraîche, fruits rouges, soda",
+      "prix": "12€",
+      "image": "media/cocktails/mojito_paradox.jpg"
+    },
+    {
+      "nom": "Cosmopolitan Art",
+      "description": "Vodka citron, Cointreau, jus de cranberry, zeste d'orange",
+      "prix": "14€",
+      "image": "media/cocktails/cosmopolitan_art.jpg"
+    },
+    {
+      "nom": "Margarita Twist",
+      "description": "Tequila, triple sec, jus de citron vert, piment d'Espelette",
+      "prix": "13€",
+      "image": "media/cocktails/margarita_twist.jpg"
+    },
+    {
+      "nom": "Old Fashioned Deluxe",
+      "description": "Bourbon, angostura bitters, sirop d'érable, écorce d'orange",
+      "prix": "16€",
+      "image": "media/cocktails/old_fashioned_deluxe.jpg"
+    }
+  ],
+  "sans_alcool": [
+    {
+      "nom": "Virgin Paradox",
+      "description": "Jus d'ananas, sirop de grenadine, soda, citron vert",
+      "prix": "8€",
+      "image": "media/cocktails/virgin_paradox.jpg"
+    },
+    {
+      "nom": "Fruit Explosion",
+      "description": "Cocktail de fruits frais, menthe, eau gazeuse",
+      "prix": "9€",
+      "image": "media/cocktails/fruit_explosion.jpg"
+    }
+  ]
+}

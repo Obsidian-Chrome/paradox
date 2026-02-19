@@ -12,17 +12,17 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <img src="media/paradox_logo.png" alt="Paradox Logo">
+                <h2>PARADOX</h2>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-                <li><a href="reglement.html"><i class="fas fa-gavel"></i> Règlement</a></li>
-                <li><a href="carte.html" class="active"><i class="fas fa-cocktail"></i> Carte</a></li>
-                <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
-                <li><a href="merch.html"><i class="fas fa-shopping-bag"></i> Merch</a></li>
-                <li><a href="magazine.html"><i class="fas fa-book"></i> Magazine</a></li>
-                <li><a href="https://w2g.tv" target="_blank"><i class="fas fa-video"></i> Watch2Gether</a></li>
-                <li><a href="https://discord.gg" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="reglement.html">Règlement</a></li>
+                <li><a href="carte.html" class="active">Carte</a></li>
+                <li><a href="equipe.html">Équipe</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="magazine.html">Magazine</a></li>
+                <li><a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank">Watch2Gether</a></li>
+                <li><a href="https://discord.gg/9MaAJ3WnYC" target="_blank">Discord</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -34,13 +34,12 @@
 
     <main class="container">
         <section class="page-header">
-            <h1><i class="fas fa-cocktail"></i> Notre Carte</h1>
+            <h1>Notre Carte</h1>
             <p>Découvrez nos cocktails signature et nos créations exclusives</p>
         </section>
 
-        <section class="menu-section">
-            <h2>Cocktails Signature</h2>
-            <div class="menu-grid">
+        <section class="menu-section" id="cocktails_signature">
+            <!-- Chargé depuis data/carte.json -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="media/cocktails/paradox_dream.jpg" alt="Paradox Dream">
@@ -226,8 +225,8 @@
                 <div class="footer-section">
                     <h4>Rejoignez-nous</h4>
                     <div class="social-links">
-                        <a href="https://w2g.tv" target="_blank"><i class="fas fa-video"></i></a>
-                        <a href="https://discord.gg" target="_blank"><i class="fab fa-discord"></i></a>
+                        <a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank"><i class="fas fa-video"></i></a>
+                        <a href="https://discord.gg/9MaAJ3WnYC" target="_blank"><i class="fab fa-discord"></i></a>
                     </div>
                 </div>
             </div>
@@ -238,5 +237,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="carte.js"></script>
 </body>
 </html>
