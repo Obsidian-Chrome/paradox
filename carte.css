@@ -20,6 +20,15 @@
     color: var(--gray-text);
 }
 
+.rule-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.2) 35%, rgba(138, 43, 226, 0.2) 65%, transparent);
+    margin: 3rem auto;
+    opacity: 0.4;
+    max-width: 60%;
+}
+
 .menu-section {
     margin: 80px 0;
 }

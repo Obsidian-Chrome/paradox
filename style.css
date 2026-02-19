@@ -52,6 +52,15 @@ body {
     margin-bottom: 50px;
 }
 
+.rule-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.2) 35%, rgba(138, 43, 226, 0.2) 65%, transparent);
+    margin: 3rem auto;
+    opacity: 0.4;
+    max-width: 60%;
+}
+
 .page-header h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
