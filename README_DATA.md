@@ -49,7 +49,7 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
       "auteur": "Vivaldi",
       "taille": "3.2",
       "compatible": "TBSE+",
-      "fichier": "tshirt_dorothy.zip",
+      "fichier": "tshirt_dorothy.pmp",
       "tags": ["Vêtements", "PMP"]
     }
   ]
@@ -191,7 +191,6 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
 
 1. **Syntaxe JSON** : Respecter strictement la syntaxe JSON (virgules, guillemets)
 2. **Chemins d'images** : Toujours utiliser des chemins relatifs depuis la racine
-3. **Encodage** : Sauvegarder les fichiers en UTF-8 pour les caractères spéciaux
 4. **Validation** : Utiliser un validateur JSON en ligne si besoin
 
 ---

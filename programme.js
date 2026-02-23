@@ -1,13 +1,19 @@
 // Configuration Google Calendar API
-// IMPORTANT: Remplacez ces valeurs par vos propres clés API
-const GOOGLE_API_KEY = 'VOTRE_CLE_API_GOOGLE';
-const CALENDAR_ID = 'VOTRE_CALENDAR_ID@group.calendar.google.com';
+const GOOGLE_API_KEY = 'AIzaSyCtxOjsUfFxtxKpwdh2eJz4CS1x3eshS-w';
+const CALENDAR_ID = 'deadwire01@gmail.com';
 
 let currentDate = new Date();
 let events = [];
 
 // Jours de la semaine
 const daysOfWeek = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
+
+// Extrait l'URL du cover depuis la description
+function extractCover(description) {
+    if (!description) return null;
+    const coverMatch = description.match(/cover="([^"]+)"/i);
+    return coverMatch ? coverMatch[1] : null;
+}
 
 // Mois de l'année
 const monthNames = [
@@ -135,12 +141,6 @@ function createDayElement(day, isOtherMonth = false, isToday = false) {
 
 // Chargement des événements depuis Google Calendar
 async function loadGoogleCalendarEvents() {
-    // Si les clés API ne sont pas configurées, utiliser des événements de démonstration
-    if (GOOGLE_API_KEY === 'VOTRE_CLE_API_GOOGLE') {
-        loadDemoEvents();
-        return;
-    }
-    
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
     
@@ -156,43 +156,15 @@ async function loadGoogleCalendarEvents() {
         if (data.items) {
             events = data.items;
             displayEvents();
+        } else {
+            events = [];
+            displayEvents();
         }
     } catch (error) {
         console.error('Erreur lors du chargement des événements:', error);
-        loadDemoEvents();
+        events = [];
+        displayEvents();
     }
-}
-
-// Événements de démonstration (à utiliser en attendant la configuration de l'API)
-function loadDemoEvents() {
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-    
-    events = [
-        {
-            summary: 'Soirée Jazz',
-            description: 'Une soirée musicale avec des artistes jazz de renom. Ambiance feutrée et cocktails d\'exception.',
-            start: { dateTime: new Date(year, month, 15, 20, 0).toISOString() },
-            end: { dateTime: new Date(year, month, 15, 23, 59).toISOString() },
-            location: 'Paradox - Salle principale'
-        },
-        {
-            summary: 'Concert Électro',
-            description: 'DJ Set avec nos meilleurs artistes électro. Danse et lumières garanties !',
-            start: { dateTime: new Date(year, month, 22, 21, 0).toISOString() },
-            end: { dateTime: new Date(year, month, 23, 2, 0).toISOString() },
-            location: 'Paradox - Bar'
-        },
-        {
-            summary: 'Vernissage Expo Photo',
-            description: 'Découvrez la nouvelle exposition de nos photographes résidents.',
-            start: { dateTime: new Date(year, month, 8, 18, 0).toISOString() },
-            end: { dateTime: new Date(year, month, 8, 22, 0).toISOString() },
-            location: 'Paradox - Galerie'
-        }
-    ];
-    
-    displayEvents();
 }
 
 function displayEvents() {
@@ -229,13 +201,129 @@ function showEventModal(event) {
     
     title.textContent = event.summary;
     
+    const coverUrl = extractCover(event.description);
+    const descriptionText = event.description ? event.description.replace(/cover="[^"]+"/gi, '').trim() : '';
+    
     details.innerHTML = `
         <div class="event-time">
             <strong><i class="fas fa-clock"></i> Horaires:</strong> ${timeString}
         </div>
         ${event.location ? `<p><strong><i class="fas fa-map-marker-alt"></i> Lieu:</strong> ${event.location}</p>` : ''}
-        ${event.description ? `<div class="event-description"><strong><i class="fas fa-info-circle"></i> Description:</strong><br>${event.description}</div>` : ''}
+        ${coverUrl ? `<div class="event-cover"><img src="${coverUrl}" alt="Événement" style="max-width: 100%; border-radius: 10px; margin: 1rem 0; cursor: pointer;" onclick="showCoverModal('${coverUrl}')"></div>` : ''}
+        ${descriptionText && !descriptionText.includes('+++') ? `<div class="event-description"><strong><i class="fas fa-info-circle"></i> Description:</strong><br>${descriptionText}</div>` : ''}
     `;
     
     modal.classList.add('show');
+}
+
+// Crée et affiche la modal de l'image cover
+function showCoverModal(imageUrl) {
+    const existingModal = document.querySelector('.cover-modal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+    
+    const modal = document.createElement('div');
+    modal.className = 'cover-modal';
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 100000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.3s ease;
+    `;
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'cover-modal__close';
+    closeBtn.setAttribute('type', 'button');
+    closeBtn.setAttribute('aria-label', 'Fermer');
+    closeBtn.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 100001;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 2px solid rgba(74, 144, 226, 0.5);
+        background: rgba(15, 15, 30, 0.9);
+        color: var(--light-text);
+        font-size: 24px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    `;
+    
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        box-shadow: 0 10px 50px rgba(74, 144, 226, 0.5);
+        border-radius: 10px;
+        animation: scaleIn 0.3s ease;
+    `;
+    
+    if (!document.querySelector('#cover-modal-styles')) {
+        const style = document.createElement('style');
+        style.id = 'cover-modal-styles';
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes scaleIn {
+                from { transform: scale(0.9); opacity: 0; }
+                to { transform: scale(1); opacity: 1; }
+            }
+            .cover-modal__close:hover {
+                border-color: var(--primary-blue);
+                background: rgba(15, 15, 30, 1);
+                transform: scale(1.1);
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    modal.appendChild(closeBtn);
+    modal.appendChild(img);
+    document.body.appendChild(modal);
+    
+    const close = () => {
+        modal.style.animation = 'fadeIn 0.2s ease reverse';
+        setTimeout(() => modal.remove(), 200);
+    };
+    
+    closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        close();
+    });
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            close();
+        }
+    });
+    
+    img.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+            close();
+            document.removeEventListener('keydown', handleEscape);
+        }
+    };
+    document.addEventListener('keydown', handleEscape);
 }

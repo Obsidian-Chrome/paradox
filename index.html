@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar navbar-static">
         <div class="container">
             <div class="logo">
-                <a href="index.html"><img src="media/paradox_logo.png" alt="Paradox Logo"></a>
+                <a href="index.html"><h2>PARADOX</h2></a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="reglement.html">Règlement</a></li>
                 <li><a href="carte.html">Carte</a></li>
                 <li><a href="equipe.html">Équipe</a></li>
-                <li><a href="merch.html">Merch</a></li>
+                <li><a href="merch.html">Boutique</a></li>
                 <li><a href="magazine.html">Magazine</a></li>
                 <li><a href="programme.html">Programme</a></li>
                 <li><a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank" class="icon-link"><img src="media/w2g_logo.png" alt="Watch2Gether"></a></li>
@@ -32,80 +32,47 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <img src="media/paradox_logo.png" alt="Paradox Logo" class="hero-logo">
-            <p style="margin-top: 2rem; font-size: 1.3rem;">Agence d'artistes, de mannequins et bar événementiel</p>
+    <div class="hero-immersive">
+        <div class="hero-background"></div>
+        <div class="hero-content-wrapper">
+            <div class="hero-main-content">
+                <img src="media/paradox_logo.png" alt="Paradox Logo" class="hero-immersive-logo">
+                <p class="hero-immersive-subtitle">Agence d'Artistes & Bar Événementiel</p>
+                <div class="hero-immersive-cta">
+                    <a href="programme.html" class="cta-btn cta-primary">
+                        <span>Événements</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="equipe.html" class="cta-btn cta-secondary">
+                        <span>Notre Équipe</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-info-wrapper">
+                <div class="hero-info-box">
+                    <div class="hero-info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="hero-info-text">
+                        <p><strong>Samedi (Mensuel)</strong></p>
+                        <p>21h00 - 23h30</p>
+                    </div>
+                </div>
+                <div class="hero-info-box">
+                    <div class="hero-info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="hero-info-text">
+                        <p>Moogle | La Coupe</p>
+                        <p>Secteur 10, Maison 9</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <main class="container">
-        <section class="about-section">
-            <h2>À Propos</h2>
-            <p>Paradox est bien plus qu'une agence. Nous regroupons des artistes talentueux et des mannequins professionnels, tout en proposant un bar exclusif qui ouvre ses portes mensuellement pour des événements inoubliables. Plongez dans un univers où la créativité rencontre l'élégance.</p>
-        </section>
-
-        <section class="carousel-section">
-            <h2>Galerie</h2>
-            <div class="carousel">
-                <div class="carousel-container">
-                    <div class="carousel-slide active">
-                        <img src="media/placeholder.png" alt="Événement Paradox 1">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="media/placeholder.png" alt="Événement Paradox 2">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="media/placeholder.png" alt="Événement Paradox 3">
-                    </div>
-                </div>
-                <button class="carousel-btn prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
-                <button class="carousel-btn next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
-                <div class="carousel-dots">
-                    <span class="dot active" onclick="currentSlide(0)"></span>
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                </div>
-            </div>
-        </section>
-
-        <section class="info-cards">
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <h3>Horaires d'Ouverture</h3>
-                <p><strong>Bar (Mensuel):</strong></p>
-                <p>Premier samedi du mois</p>
-                <p>20h00 - 04h00</p>
-                <p class="mt-2"><strong>Agence:</strong></p>
-                <p>Lundi - Vendredi: 10h00 - 18h00</p>
-                <p>Sur rendez-vous uniquement</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <h3>Adresse</h3>
-                <p>123 Rue de la Créativité</p>
-                <p>75001 Paris, France</p>
-                <p class="mt-2">+33 1 23 45 67 89</p>
-                <p>contact@paradox.fr</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-star"></i>
-                </div>
-                <h3>Événements Spéciaux</h3>
-                <p>Prochain événement:</p>
-                <p><strong>Soirée Paradox</strong></p>
-                <p>1er Samedi du mois prochain</p>
-                <p class="mt-2">Réservation recommandée</p>
-                <p>Places limitées</p>
-            </div>
-        </section>
+    <main class="main-content">
     </main>
 
     <footer>
