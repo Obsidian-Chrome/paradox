@@ -2,7 +2,7 @@ let merchData = [];
 
 async function loadMerch() {
     try {
-        const response = await fetch('/data/merch.json');
+        const response = await fetch('/paradox/data/merch.json');
         const data = await response.json();
         merchData = data.items;
         

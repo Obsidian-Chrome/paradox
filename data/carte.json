@@ -5,28 +5,28 @@
       "variantes": ["Noir", "Vert", "Blanc", "Oolong", "Fumée", "Rooibos", "Rolambaie", "Jasmin", "Pêche", "Cerise", "Framboise", "Menche", "Ishgardais", "Hingashin", "Thavnairois"],
       "prix": "4 gils",
       "createur": "",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Les jus",
       "variantes": ["Multifruit", "Orange", "Mandarine", "Rolambaie", "Cerise", "Pêche", "Framboise", "Mangue", "Citron", "Raison", "Pastèque", "Ananas", "Kiwi", "Banane"],
       "prix": "3,50 gils",
       "createur": "",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Les cafés",
       "variantes": ["Espresso", "Risetto", "Lungo", "Doppio", "Café au lait", "Latte", "Cappuccino", "Noisette", "Macchiato"],
       "prix": "4,50 gils",
       "createur": "",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Les chocolats chauds",
       "variantes": ["Lait", "Caramel salé", "Guimauve", "Chocolat blanc", "Amande", "Beurre d'arachide", "Érable et caramel", "Framboise", "Noix de coco", "Viennois"],
       "prix": "4,50 gils",
       "createur": "",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     }
   ],
   "petits_plats": [
@@ -35,28 +35,28 @@
       "description": "Côtes levées caramélisées au whisky et au poivre noir, servies avec une purée fumée aux éclats de bacon croustillants.",
       "prix": "",
       "createur": "",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Classique en Croûte",
       "description": "Filet de bar en croûte de pâte feuilletée, farci de champignons à la truffe et d'épinards fondus.",
       "prix": "",
       "createur": "",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Soul Bowl",
       "description": "Bol chaud de patates douces rôties, pois chiches épicés, avocat, oignons confits et sauce tahini au citron.",
       "prix": "",
       "createur": "",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Electro Sushi",
       "description": "Sushis revisités avec gelée de yuzu, perles de wasabi, feuille d'algue croustillante et mousse de gingembre.",
       "prix": "",
       "createur": "",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     }
   ],
   "cocktails": [
@@ -65,168 +65,168 @@
       "description": "Whisky tourbé, liqueur de cerise noire, Amaro Averna, Bitter Café, zeste d'orange brulé et glaçon de pierre noire.",
       "prix": "",
       "createur": "Void",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Onyx Bliss",
       "description": "Rhum ambré, whisky fumé, triple sec, absynthe, jus d'orange, citron vert, angostura bitters, glaçons.",
       "prix": "",
       "createur": "Onyx",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Le Nounours Velours",
       "description": "Lait d'amande vanillé, crème de coco, purée de fraise, sirop de guimauve, eau de rose, glaçons pilés, chantilly, mini-marshmallows et copeaux de chocolat blanc.",
       "prix": "",
       "createur": "Volos",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Le Viéra Fumé",
       "description": "Bourbon, marshmallows, sauce piquante, trait de bitter et une pincée de cacao.",
       "prix": "",
       "createur": "Theliar",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Shura Scales",
       "description": "Vodka, liqueur d'amande, liqueur de chocolat, jus d'ananas et crème.",
       "prix": "",
       "createur": "Shura",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Yasha Smile",
       "description": "Whisky, liqueur de cerise, liqueur de framboise, jus de pamplemousse, jus d'orange.",
       "prix": "",
       "createur": "Yasha",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Daughter of Blues",
       "description": "Whisky, liqueur de pêche, orange pressée, ginger beer.",
       "prix": "",
       "createur": "Dorothy",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "L'Exilée Fruitée",
       "description": "Cidre d'Eorzea, liqueur de pomme sauvage, sirop de miel de griffon, jus de lime fraîche, glace pilés.",
       "prix": "",
       "createur": "Miss Pomme",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Ombre Astrale",
       "description": "Whisky, liqueur de myrtille, jus de pamplemousse et sirop de grenadine.",
       "prix": "",
       "createur": "Ombre",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Souffle lunaire",
       "description": "Vodka, liqueur de violette, curaçao bleu, sirop de fraise, jus de pomme et paillettes comestibles.",
       "prix": "",
       "createur": "Oni de Saphir",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "L'Encrée Noire",
       "description": "Whisky fumé, liqueur de gentiane, crème de cassis, bitters cacao, charbon actif et zeste d'orange brûlé.",
       "prix": "",
       "createur": "Zerick",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "L'Encrée",
       "description": "Thé noir infusé à la lavande, sirop de cassis, jus de citron violet, fleur d'oranger, blanc d'œuf et charbon végétal.",
       "prix": "",
       "createur": "Ava",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Opale Bliss",
       "description": "Brandy, tequila, liqueur de framboise, cranberry, grenadine et feuille de menthe.",
       "prix": "",
       "createur": "Yae",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "El Diablo",
       "description": "Tequila, crème de cassis, citron et feuilles de menthe.",
       "prix": "",
       "createur": "Aelya",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Le Vétéran",
       "description": "Rhum garlemaldais, liqueur de café, liqueur de cerise, jus de citron vert, sirop de sucre de canne et angostura bitters.",
       "prix": "",
       "createur": "Weiss",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Bamkura",
       "description": "Vermouth, xérès, saké, fleur de cerisier en poudre et glaçon.",
       "prix": "",
       "createur": "Takeshi",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Diva's Claws",
       "description": "Curaçao bleu, liqueur de mûre et liqueur de cassis.",
       "prix": "",
       "createur": "Indranil",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "L'aube de la Colombe",
       "description": "Gin japonais, curaçao bleu, sirop de yuzu, lait de coco, jus de citron vert, eau pétillante jasmin et poussière bleue comestible.",
       "prix": "",
       "createur": "Yukii",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Banana Sunrise",
       "description": "Banane, jus d'ananas, lait de coco, jus de citron, glace pilée, chantilly, une paille et petits morceaux de banane séchée.",
       "prix": "",
       "createur": "Shana",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Abyssal Pulse",
       "description": "Gin aux algues, curaçao bleu, liqueur de yuzu, tonic à l'eau de mer et sirop de concombre.",
       "prix": "",
       "createur": "Kaïa",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Red Woods",
       "description": "Rhum cacao, jus de rolambaies, gousse de vanille et poivre sauvage. Sans alcool : Infusion froide de cacao, jus de rolambaies, gousse de vanille et poivre sauvage.",
       "prix": "",
       "createur": "Aedh",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Morsure de la peluche",
       "description": "Sirop de pêche blanche, liqueur de fleur de sureau, jus de citron, glaçon, gin et absinthe.",
       "prix": "",
       "createur": "Saru",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Grenade Bozjienne",
       "description": "Whisky, absinthe, sirop simple, traits de bitter et zeste de citron.",
       "prix": "",
       "createur": "Ellen",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     },
     {
       "nom": "Le beau gosse",
       "description": "Un tiers de bière blonde, une dose de rhum, du gingembre et deux feuilles de menthe fraîche.",
       "prix": "",
       "createur": "Melegan",
-      "image": "/media/carte/placeholder.webp"
+      "image": "/paradox/media/carte/placeholder.webp"
     }
   ],
   "partenaires": []

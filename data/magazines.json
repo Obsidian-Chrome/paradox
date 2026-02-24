@@ -2,18 +2,18 @@
   "magazines": [
     {
       "titre": "Paradox Magazine - Volume 1",
-      "pdf": "/media/magazines/Paradox V1.pdf",
-      "couverture": "/media/magazines/Paradox V1.webp"
+      "pdf": "/paradox/media/magazines/Paradox V1.pdf",
+      "couverture": "/paradox/media/magazines/Paradox V1.webp"
     },
     {
       "titre": "Paradox Magazine - Volume 2",
-      "pdf": "/media/magazines/Paradox V2.pdf",
-      "couverture": "/media/magazines/Paradox V2.webp"
+      "pdf": "/paradox/media/magazines/Paradox V2.pdf",
+      "couverture": "/paradox/media/magazines/Paradox V2.webp"
     },
     {
       "titre": "Paradox Magazine - Volume 3",
-      "pdf": "/media/magazines/Paradox V3.pdf",
-      "couverture": "/media/magazines/Paradox V3.webp"
+      "pdf": "/paradox/media/magazines/Paradox V3.pdf",
+      "couverture": "/paradox/media/magazines/Paradox V3.webp"
     }
   ]
 }

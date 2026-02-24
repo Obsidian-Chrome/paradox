@@ -2,7 +2,7 @@
   "items": [
     {
       "nom": "T-shirt Dorothy",
-      "image": "/media/boutique/Dorothy.webp",
+      "image": "/paradox/media/boutique/Dorothy.webp",
       "auteur": "Vivaldi",
       "compatible": "TBSE+",
       "fichier_masculin": "tshirt_dorothy_m.pmp",
@@ -11,7 +11,7 @@
     },
     {
       "nom": "T-shirt Ellen",
-      "image": "/media/boutique/Ellen.webp",
+      "image": "/paradox/media/boutique/Ellen.webp",
       "auteur": "Vivaldi",
       "compatible": "YAB",
       "fichier_masculin": "tshirt_ellen_m.pmp",
@@ -20,7 +20,7 @@
     },
     {
       "nom": "T-shirt Funk Machine",
-      "image": "/media/boutique/Funk_Machine.webp",
+      "image": "/paradox/media/boutique/Funk_Machine.webp",
       "auteur": "Vivaldi",
       "compatible": "Rue",
       "fichier_masculin": "tshirt_funk_machine_m.pmp",
@@ -29,7 +29,7 @@
     },
     {
       "nom": "T-shirt Funk Magic",
-      "image": "/media/boutique/Funk_Magic.webp",
+      "image": "/paradox/media/boutique/Funk_Magic.webp",
       "auteur": "Vivaldi",
       "compatible": "Bibo",
       "fichier_masculin": "tshirt_funk_magic_m.pmp",
@@ -38,7 +38,7 @@
     },
     {
       "nom": "T-shirt Ghostline",
-      "image": "/media/boutique/Ghostline.webp",
+      "image": "/paradox/media/boutique/Ghostline.webp",
       "auteur": "Vivaldi",
       "compatible": "TBSE+",
       "fichier_masculin": "tshirt_ghostline_m.pmp",
@@ -47,7 +47,7 @@
     },
     {
       "nom": "T-shirt Glitchtrap",
-      "image": "/media/boutique/Glitchtrap.webp",
+      "image": "/paradox/media/boutique/Glitchtrap.webp",
       "auteur": "Vivaldi",
       "compatible": "YAB",
       "fichier_masculin": "tshirt_glitchtrap_m.pmp",
@@ -56,7 +56,7 @@
     },
     {
       "nom": "T-shirt Hex",
-      "image": "/media/boutique/Hex.webp",
+      "image": "/paradox/media/boutique/Hex.webp",
       "auteur": "Vivaldi",
       "compatible": "Rue",
       "fichier_masculin": "tshirt_hex_m.pmp",
@@ -65,7 +65,7 @@
     },
     {
       "nom": "T-shirt Lucien",
-      "image": "/media/boutique/Lucien.webp",
+      "image": "/paradox/media/boutique/Lucien.webp",
       "auteur": "Vivaldi",
       "compatible": "Bibo",
       "fichier_masculin": "tshirt_lucien_m.pmp",
@@ -74,7 +74,7 @@
     },
     {
       "nom": "T-shirt Miss Pomme",
-      "image": "/media/boutique/Miss_Pomme.webp",
+      "image": "/paradox/media/boutique/Miss_Pomme.webp",
       "auteur": "Vivaldi",
       "compatible": "TBSE+",
       "fichier_masculin": "tshirt_miss_pomme_m.pmp",
@@ -83,7 +83,7 @@
     },
     {
       "nom": "T-shirt Ombre",
-      "image": "/media/boutique/Ombre.webp",
+      "image": "/paradox/media/boutique/Ombre.webp",
       "auteur": "Vivaldi",
       "compatible": "YAB",
       "fichier_masculin": "tshirt_ombre_m.pmp",
@@ -92,7 +92,7 @@
     },
     {
       "nom": "T-shirt Vekel Svansson",
-      "image": "/media/boutique/Vekel_Svansson.webp",
+      "image": "/paradox/media/boutique/Vekel_Svansson.webp",
       "auteur": "Vivaldi",
       "compatible": "Rue",
       "fichier_masculin": "tshirt_vekel_svansson_m.pmp",
@@ -101,7 +101,7 @@
     },
     {
       "nom": "T-shirt Virus Machine",
-      "image": "/media/boutique/Virus_Machine.webp",
+      "image": "/paradox/media/boutique/Virus_Machine.webp",
       "auteur": "Vivaldi",
       "compatible": "Bibo",
       "fichier_masculin": "tshirt_virus_machine_m.pmp",
@@ -110,7 +110,7 @@
     },
     {
       "nom": "T-shirt Yukii",
-      "image": "/media/boutique/Yukii.webp",
+      "image": "/paradox/media/boutique/Yukii.webp",
       "auteur": "Vivaldi",
       "compatible": "TBSE+",
       "fichier_masculin": "tshirt_yukii_m.pmp",

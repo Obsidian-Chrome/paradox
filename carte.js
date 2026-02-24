@@ -1,6 +1,6 @@
 async function loadMenu() {
     try {
-        const response = await fetch('/data/carte.json');
+        const response = await fetch('/paradox/data/carte.json');
         const data = await response.json();
         
         loadMenuSection('basiques', 'Nos basiques', data.basiques);

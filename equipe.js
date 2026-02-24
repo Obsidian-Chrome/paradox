@@ -10,7 +10,7 @@ const categories = {
 
 async function loadTeam() {
     try {
-        const response = await fetch('/data/equipe.json');
+        const response = await fetch('/paradox/data/equipe.json');
         const data = await response.json();
         
         for (const [key, label] of Object.entries(categories)) {
