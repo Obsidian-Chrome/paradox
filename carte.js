@@ -1,6 +1,6 @@
 async function loadMenu() {
     try {
-        const response = await fetch('data/carte.json');
+        const response = await fetch('/data/carte.json');
         const data = await response.json();
         
         loadMenuSection('basiques', 'Nos basiques', data.basiques);
@@ -48,10 +48,21 @@ function createMenuCard(item) {
         ? `<span class="price">${item.prix}</span>` 
         : '';
     
-    card.innerHTML = `
+    // Gestion de l'image : affiche l'image seulement si définie
+    let imageHTML = '';
+    if (item.image) {
+        const imageWebp = item.image.replace(/\.(jpg|png|jpeg)$/i, '.webp');
+        imageHTML = `
         <div class="menu-image">
-            <img src="media/cocktails/placeholder.jpg" alt="${item.nom}">
-        </div>
+            <picture>
+                <source srcset="${imageWebp}" type="image/webp">
+                <img src="${item.image}" alt="${item.nom}">
+            </picture>
+        </div>`;
+    }
+    
+    card.innerHTML = `
+        ${imageHTML}
         <div class="menu-info">
             <div class="menu-header">
                 <h3>${item.nom}</h3>

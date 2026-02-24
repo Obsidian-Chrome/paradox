@@ -1,8 +1,8 @@
 # Guide d'utilisation des fichiers JSON
 
-Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le contenu dynamique. Tous les fichiers JSON se trouvent dans le dossier `data/`.
+Le site Paradox utilise des fichiers JSON pour gérer facilement le contenu dynamique. Tous les fichiers JSON se trouvent dans le dossier `data/`.
 
-## 📋 Fichiers JSON disponibles
+## Fichiers JSON disponibles
 
 ### 1. `data/equipe.json` - Équipe (toutes catégories)
 
@@ -30,14 +30,14 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
 
 **Champs par membre :**
 - `nom` : Nom du membre
-- `image` : Chemin vers l'image
+- `image` : Chemin vers l'image (absolu depuis la racine, ex: `/media/team/placeholder.webp`)
 - `youtube` : Lien vers la chaîne YouTube (optionnel, affiche un badge si renseigné)
 
-**Utilisé par :** `equipe.html` via `equipe.js`
+**Utilisé par :** `equipe/index.html` via `equipe.js`
 
 ---
 
-### 2. `data/merch.json` - Merchandise
+### 2. `data/merch.json` - Boutique
 
 **Structure :**
 ```json
@@ -45,11 +45,11 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
   "items": [
     {
       "nom": "T-shirt Dorothy",
-      "image": "media/merch/Dorothy.png",
+      "image": "/media/boutique/Dorothy.webp",
       "auteur": "Vivaldi",
-      "taille": "3.2",
       "compatible": "TBSE+",
-      "fichier": "tshirt_dorothy.pmp",
+      "fichier_masculin": "tshirt_dorothy_m.pmp",
+      "fichier_feminin": "tshirt_dorothy_f.pmp",
       "tags": ["Vêtements", "PMP"]
     }
   ]
@@ -58,14 +58,14 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
 
 **Champs :**
 - `nom` : Nom de l'item
-- `image` : Chemin vers l'image
+- `image` : Chemin vers l'image (absolu depuis la racine, ex: `/media/boutique/nom.webp`)
 - `auteur` : Créateur du mod
-- `taille` : Taille en MB (nombre décimal)
-- `compatible` : Compatibilité (TBSE+, YAB, Rue, Bibo)
-- `fichier` : Nom du fichier à télécharger
+- `compatible` : Compatibilité (TBSE+, YAB, Rue, Bibo...)
+- `fichier_masculin` : Nom du fichier à télécharger pour les hommes
+- `fichier_feminin` : Nom du fichier à télécharger pour les femmes
 - `tags` : Tags affichés sur la vignette
 
-**Utilisé par :** `merch.html` via `merch.js`
+**Utilisé par :** `boutique/index.html` via `merch.js`
 
 ---
 
@@ -74,25 +74,54 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
 **Structure :**
 ```json
 {
-  "cocktails_signature": [
+  "basiques": [
     {
-      "nom": "Paradox Dream",
-      "description": "Vodka, curaçao bleu, jus d'ananas, sirop de vanille",
-      "prix": "14€",
-      "image": "media/cocktails/paradox_dream.jpg"
+      "nom": "Les thés",
+      "variantes": ["Noir", "Vert", "Blanc", "Oolong"],
+      "prix": "4 gils",
+      "createur": "",
+      "image": "/media/carte/placeholder.webp"
     }
   ],
-  "classiques": [...],
-  "sans_alcool": [...]
+  "petits_plats": [
+    {
+      "nom": "Rock'n'Ribs",
+      "description": "Côtes levées caramélisées au whisky...",
+      "prix": "",
+      "createur": "",
+      "image": "/media/carte/placeholder.webp"
+    }
+  ],
+  "cocktails": [
+    {
+      "nom": "Cendres Silencieuses",
+      "description": "Whisky tourbé, liqueur de cerise noire...",
+      "prix": "",
+      "createur": "Void",
+      "image": "/media/carte/placeholder.webp"
+    }
+  ],
+  "partenaires": []
 }
 ```
 
 **Sections disponibles :**
-- `cocktails_signature` : Cocktails originaux de Paradox
-- `classiques` : Cocktails classiques revisités
-- `sans_alcool` : Boissons sans alcool
+- `basiques` : Boissons de base (thés, jus, cafés, chocolats chauds) avec liste de `variantes`
+- `petits_plats` : Plats proposés au bar avec `description`
+- `cocktails` : Cocktails créés par les membres avec `createur` et `description`
+- `partenaires` : Partenaires du bar (vide pour le moment)
 
-**Utilisé par :** `carte.html` via `carte.js`
+**Champs communs :**
+- `nom` : Nom de l'item
+- `prix` : Prix (peut être vide)
+- `createur` : Créateur de la recette (peut être vide)
+- `image` : Chemin vers l'image (absolu depuis la racine, ex: `/media/carte/nom.webp`)
+
+**Champs spécifiques :**
+- `variantes` : Liste des variantes disponibles (pour `basiques`)
+- `description` : Description détaillée (pour `petits_plats` et `cocktails`)
+
+**Utilisé par :** `carte/index.html` via `carte.js`
 
 ---
 
@@ -104,8 +133,8 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
   "magazines": [
     {
       "titre": "Paradox Magazine - Volume 1",
-      "pdf": "media/magazines/Paradox V1.pdf",
-      "couverture": "media/magazines/Paradox V1.png"
+      "pdf": "/media/magazines/Paradox V1.pdf",
+      "couverture": "/media/magazines/Paradox V1.webp"
     }
   ]
 }
@@ -113,14 +142,14 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
 
 **Champs :**
 - `titre` : Titre complet du magazine
-- `pdf` : Chemin vers le fichier PDF
-- `couverture` : Chemin vers l'image de couverture
+- `pdf` : Chemin vers le fichier PDF (absolu depuis la racine)
+- `couverture` : Chemin vers l'image de couverture (absolu depuis la racine)
 
-**Utilisé par :** `magazine.html` via `magazine.js`
+**Utilisé par :** `magazine/index.html` via `magazine.js`
 
 ---
 
-## ✏️ Comment modifier le contenu
+## Comment modifier le contenu
 
 ### Ajouter un membre d'équipe
 
@@ -130,46 +159,61 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
 ```json
 {
   "nom": "Nouveau Membre",
-  "image": "media/team/placeholder.jpg",
+  "image": "/media/team/placeholder.webp",
   "youtube": ""
 }
 ```
 4. Sauvegarder le fichier
-5. Rafraîchir la page `equipe.html`
+5. Rafraîchir la page `equipe/`
 
-### Ajouter un item de merch
+### Ajouter un item de boutique
 
 1. Ouvrir `data/merch.json`
 2. Ajouter une nouvelle entrée dans `items` :
 ```json
 {
   "nom": "T-shirt Nouveau",
-  "image": "media/merch/Nouveau.png",
+  "image": "/media/boutique/Nouveau.webp",
   "auteur": "Auteur",
-  "taille": "2.5",
   "compatible": "TBSE+",
-  "fichier": "tshirt_nouveau.zip",
+  "fichier_masculin": "tshirt_nouveau_m.pmp",
+  "fichier_feminin": "tshirt_nouveau_f.pmp",
   "tags": ["Vêtements", "PMP"]
 }
 ```
-3. Placer l'image dans `media/merch/`
-4. Sauvegarder et rafraîchir `merch.html`
+3. Placer l'image dans `media/boutique/`
+4. Sauvegarder et rafraîchir `boutique/`
 
 ### Ajouter un cocktail
 
 1. Ouvrir `data/carte.json`
-2. Choisir la section (`cocktails_signature`, `classiques`, ou `sans_alcool`)
-3. Ajouter une nouvelle entrée :
+2. Ajouter une nouvelle entrée dans la section `cocktails` :
 ```json
 {
   "nom": "Nouveau Cocktail",
   "description": "Liste des ingrédients",
-  "prix": "15€",
-  "image": "media/cocktails/nouveau.jpg"
+  "prix": "",
+  "createur": "Nom du créateur",
+  "image": "/media/carte/placeholder.webp"
 }
 ```
-4. Placer l'image dans `media/cocktails/`
-5. Sauvegarder et rafraîchir `carte.html`
+3. Si vous avez une image spécifique, la placer dans `media/carte/`
+4. Sauvegarder et rafraîchir `carte/`
+
+### Ajouter une boisson de base
+
+1. Ouvrir `data/carte.json`
+2. Ajouter une nouvelle entrée dans la section `basiques` :
+```json
+{
+  "nom": "Les smoothies",
+  "variantes": ["Fraise", "Mangue", "Banane"],
+  "prix": "5 gils",
+  "createur": "",
+  "image": "/media/carte/placeholder.webp"
+}
+```
+3. Sauvegarder et rafraîchir `carte/`
 
 ### Ajouter un magazine
 
@@ -178,24 +222,26 @@ Le site Paradox utilise désormais des fichiers JSON pour gérer facilement le c
 ```json
 {
   "titre": "Paradox Magazine - Volume 4",
-  "pdf": "media/magazines/Paradox V4.pdf",
-  "couverture": "media/magazines/Paradox V4.png"
+  "pdf": "/media/magazines/Paradox V4.pdf",
+  "couverture": "/media/magazines/Paradox V4.webp"
 }
 ```
 3. Placer les fichiers PDF et couverture dans `media/magazines/`
-4. Sauvegarder et rafraîchir `magazine.html`
+4. Sauvegarder et rafraîchir `magazine/`
 
 ---
 
-## ⚠️ Points importants
+## Points importants
 
 1. **Syntaxe JSON** : Respecter strictement la syntaxe JSON (virgules, guillemets)
-2. **Chemins d'images** : Toujours utiliser des chemins relatifs depuis la racine
-4. **Validation** : Utiliser un validateur JSON en ligne si besoin
+2. **Chemins d'images** : Toujours utiliser des chemins **absolus** commençant par `/` (ex: `/media/carte/image.webp`)
+3. **Format d'image** : Privilégier le format `.webp` pour de meilleures performances.
+4. **Structure des pages** : Les pages sont dans des sous-dossiers (`carte/`, `equipe/`, etc.) mais les chemins JSON restent absolus depuis la racine
+5. **Optimiser les PDF** : Utiliser un logiciel ou un site pour optimiser les PDF (conserver la meilleure qualité possible suffit). Pas de fichier de plus de 100 mo.
 
 ---
 
-## 🔄 Ordre d'affichage
+## Ordre d'affichage
 
 Les items s'affichent dans l'ordre où ils apparaissent dans les fichiers JSON.
 Pour réorganiser, déplacer simplement les entrées dans le fichier.

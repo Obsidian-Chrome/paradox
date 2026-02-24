@@ -15,7 +15,7 @@ async function detectAvailableMagazines() {
     editionData = {};
     
     try {
-        const response = await fetch('data/magazines.json');
+        const response = await fetch('/data/magazines.json');
         const data = await response.json();
         
         if (data.magazines && data.magazines.length > 0) {

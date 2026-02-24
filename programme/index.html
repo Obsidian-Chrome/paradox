@@ -4,25 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programme - Paradox</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="programme.css">
+    <link rel="icon" type="image/webp" href="../media/paradox_logo.webp">
+    <link rel="icon" type="image/png" href="../media/paradox_logo.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../programme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <a href="index.html"><h2>PARADOX</h2></a>
+                <a href="/"><h2>PARADOX</h2></a>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="reglement.html">Règlement</a></li>
-                <li><a href="carte.html">Carte</a></li>
-                <li><a href="equipe.html">Équipe</a></li>
-                <li><a href="merch.html">Boutique</a></li>
-                <li><a href="magazine.html">Magazine</a></li>
-                <li><a href="programme.html" class="active">Programme</a></li>
-                <li><a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank" class="icon-link"><img src="media/w2g_logo.png" alt="Watch2Gether"></a></li>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/reglement/">Règlement</a></li>
+                <li><a href="/carte/">Carte</a></li>
+                <li><a href="/equipe/">Équipe</a></li>
+                <li><a href="/boutique/">Boutique</a></li>
+                <li><a href="/magazine/">Magazine</a></li>
+                <li><a href="/programme/" class="active">Programme</a></li>
+                <li><a href="https://w2g.tv/?r=dgdjw1shaeg6t09lxw" target="_blank" class="icon-link">
+                    <picture>
+                        <source srcset="../media/w2g_logo.webp" type="image/webp">
+                        <img src="../media/w2g_logo.png" alt="Watch2Gether">
+                    </picture>
+                </a></li>
                 <li><a href="https://discord.gg/9MaAJ3WnYC" target="_blank" class="icon-link"><i class="fab fa-discord"></i></a></li>
             </ul>
             <div class="burger">
@@ -62,11 +69,11 @@
 
     <footer>
         <div class="container">
-            <p><strong>Paradox</strong> &copy; 2026 - Tous droits réservés.</p>
+            <p><strong>Paradox</strong> &copy; <span id="current-year">2026</span> - Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script src="programme.js"></script>
-    <script src="script.js"></script>
+    <script src="../programme.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>
