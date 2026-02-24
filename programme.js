@@ -1,6 +1,6 @@
 // Configuration Google Calendar API
-const GOOGLE_API_KEY = 'AIzaSyCtxOjsUfFxtxKpwdh2eJz4CS1x3eshS-w';
-const CALENDAR_ID = 'deadwire01@gmail.com';
+const GOOGLE_API_KEY = 'AIzaSyBX4ILJ5DTPqtlx5Pe_iK0DvpFiOuTll_Q';
+const CALENDAR_ID = 'jennyferdoumont1@gmail.com';
 
 let currentDate = new Date();
 let events = [];
@@ -169,8 +169,8 @@ async function loadGoogleCalendarEvents() {
 
 function displayEvents() {
     // Retirer tous les marqueurs d'événements existants
-    document.querySelectorAll('.calendar-day.has-event').forEach(el => {
-        el.classList.remove('has-event');
+    document.querySelectorAll('.calendar-day.has-event, .calendar-day.has-monthly-event').forEach(el => {
+        el.classList.remove('has-event', 'has-monthly-event');
         el.onclick = null;
     });
     
@@ -181,7 +181,15 @@ function displayEvents() {
         
         const dayElement = document.querySelector(`[data-date="${dateStr}"]`);
         if (dayElement) {
-            dayElement.classList.add('has-event');
+            // Vérifier si c'est une soirée mensuelle Paradox
+            const isMonthlyEvent = event.summary && event.summary.toLowerCase().includes('soirée mensuelle paradox');
+            
+            if (isMonthlyEvent) {
+                dayElement.classList.add('has-monthly-event');
+            } else {
+                dayElement.classList.add('has-event');
+            }
+            
             dayElement.onclick = () => showEventModal(event);
         }
     });
@@ -199,7 +207,15 @@ function showEventModal(event) {
         `${startDate.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })} - ${endDate.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}` : 
         'Toute la journée';
     
-    title.textContent = event.summary;
+    // Formater la date complète
+    const dateString = startDate.toLocaleDateString('fr-FR', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    
+    title.innerHTML = `<div style="font-size: 0.9rem; color: var(--primary-blue); font-weight: 500; margin-bottom: 0.5rem; text-transform: capitalize;">${dateString}</div>${event.summary}`;
     
     const coverUrl = extractCover(event.description);
     const descriptionText = event.description ? event.description.replace(/cover="[^"]+"/gi, '').trim() : '';
