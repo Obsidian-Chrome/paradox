@@ -26,7 +26,6 @@
   "photographe": [
     {"nom": "Aqua", "image": "/paradox/media/team/aqua.png", "youtube": ""},
     {"nom": "Ava", "image": "/paradox/media/team/ava.png", "youtube": ""},
-    {"nom": "Saru", "image": "/paradox/media/team/saru.png", "youtube": ""},
     {"nom": "Yae", "image": "/paradox/media/team/yae.png", "youtube": ""},
     {"nom": "Rhoga", "image": "/paradox/media/team/rhoga.png", "youtube": ""}
   ],
